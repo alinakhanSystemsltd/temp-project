@@ -5,17 +5,17 @@ node {
 
      phase2: { sh "echo p2; sleep 10s; echo All tests are successed!" },
 
-     phase3: { sh "echo p2; sleep 5s; echo Static analyse done!" },
+     phase3: { sh "echo p3; sleep 5s; echo Static analyse done!" },
 
-     phase4: { sh "echo p2; sleep 7s; echo Formal analyse done!" },
+     phase4: { sh "echo p4; sleep 7s; echo Formal analyse done!" },
 
-     phase5: { sh "echo p2; sleep 10s; echo Dynamic analyse done!" },
+     phase5: { sh "echo p5; sleep 10s; echo Dynamic analyse done!" },
 
-     phase6: { sh "echo p2; sleep 30s; echo Conan packages are ready!" },
+     phase6: { sh "echo p6; sleep 30s; echo Conan packages are ready!" },
 
-     phase3: { sh "echo p2; sleep 20s; echo All reports have been created!" },
+     phase7: { sh "echo p7; sleep 20s; echo All reports have been created!" },
 
-     phase7: { sh "echo p3; sleep 17s; sh runner.sh" }
+     phase8: { sh "echo p8; sleep 17s; sh runner.sh" }
    )
   
 }
