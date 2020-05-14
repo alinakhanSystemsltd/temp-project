@@ -15,7 +15,7 @@ node {
 
      phase7: { sh "echo p7; sleep 20s; echo All reports have been created!" },
 
-     phase8: { sh "echo p8; sleep 17s; sh runner.sh" }
+     phase8: { sh "echo p8; sleep 31s; sh runner.sh" }
    )
   
 }
