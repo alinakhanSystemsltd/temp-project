@@ -3,7 +3,7 @@ node {
    parallel (
      phase1: { sh "echo p1; sleep 20s; echo I am also done" },
      phase2: { sh "echo p2; sleep 10s; echo I am done" },
-     phase3: { sh "echo p3; sleep 15s;  ./runner.sh" }
+     phase3: { sh "echo p3; sleep 15s; sh runner.sh" }
    )
   sh "tested"   
 }
