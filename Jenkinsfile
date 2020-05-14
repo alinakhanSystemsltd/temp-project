@@ -1,12 +1,8 @@
-none{
-    stages {
-        parallel(
-            task_1 : {sh echo "hello world"; sleep 10s;}
-            task_2 : {sh echo "hello moon"; sleep 15s;}
-
-        )
-        sh echo "The tasks have been completed!" 
-        
-        
-    }
+node {
+   git "https://github.com/Celcis/jenkins_parallel.git."
+   parallel (
+     phase1: { sh "echo p1; sleep 20s; echo phase1" },
+     phase2: { sh "echo p2; sleep 40s; echo phase2" }
+   )
+  sh "run this after both phases complete"   
 }
