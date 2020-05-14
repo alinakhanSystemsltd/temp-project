@@ -1,5 +1,5 @@
 node {
-   git "https://github.com/Celcis/clang_10_in_docker.git"
+   //git "https://github.com/Celcis/clang_10_in_docker.git"
    parallel (
      phase1: { sh "echo p1; sleep 20s; echo Release binary done!" },
 
