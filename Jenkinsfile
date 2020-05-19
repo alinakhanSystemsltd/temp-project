@@ -1,7 +1,9 @@
 node {
    git "https://github.com/Celcis/clang_10_in_docker.git"
    parallel (
-   //  phase1: { sh "echo p1; sleep 20s; docker.image('runtime-tooling').withRun('-p 8081:8081 --name runtime')" },
+     //phase1: { sh "echo p1; sleep 20s; docker.image('runtime-tooling').withRun('-p 8081:8081 --name runtime')" },
+     phase1: { sh "echo p2; sleep 10s; echo Fake test!" },
+
 
      phase2: { sh "echo p2; sleep 10s; echo All tests are successed!" },
 
