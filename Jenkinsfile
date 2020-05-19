@@ -6,9 +6,11 @@ node {
   
 
       parallel (
-     phase1: { sh "docker run hello-world" },
+     phase1: { sh "docker run runtime-tooling | clang --version
+ " },
 
-     phase2: { sh "echo p2; sleep 10s; echo All tests are successed!" },
+     phase2: { sh "docker run runtime-tooling | cmake --version
+" },
 
      phase3: { sh "echo p3; sleep 5s; echo Static analyse done!" },
 
@@ -20,7 +22,7 @@ node {
 
      phase7: { sh "echo p7; sleep 20s; echo All reports have been created!" },
 
-     phase8: { sh "echo p8; sleep 31s; sh runner.sh" }
+     phase8: { sh "echo p8; sleep 31s; echo sss" }
    
   )
 }
