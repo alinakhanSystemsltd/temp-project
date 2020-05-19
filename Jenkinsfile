@@ -2,7 +2,7 @@ node {
   
   stage 'Compiling'
   docker.image('ubuntu:18.04').inside {
-    sh runner.sh
+     runCmd echo "hello Midend"
   }
   parallel (
     "frontend": {
