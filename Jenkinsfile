@@ -1,8 +1,6 @@
 node {
   def runCmd = { cmd ->
-        docker.image("ubuntu:latest").withRun("-t -v /home/mn:/src/mn") { c ->
-            sh "docker exec ${c.id} ${cmd}"
-        }
+        sh "docker run --rm -v /home/mn:/src/mn ubuntu:latest ${cmd}"
     }
   
   stage 'Build'
