@@ -1,7 +1,7 @@
 node {
   
   stage 'Compiling'
-  docker.image('runtime-tooling').inside {
+  docker.image('ubuntu:18.04').inside {
     sh runner.sh
   }
   parallel (
