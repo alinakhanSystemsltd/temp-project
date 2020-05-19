@@ -6,7 +6,7 @@ node {
   
 
       parallel (
-     mphase1: { sh "echo p1; sleep 20s; docker.image('runtime-tooling').withRun('-p 8081:8081 --name runtime')" },
+     phase1: { sh "docker run hello-world" },
 
      phase2: { sh "echo p2; sleep 10s; echo All tests are successed!" },
 
