@@ -1,16 +1,16 @@
 node {
   def runCmd = { cmd ->
-        sh "docker run --rm -v /home/mn:/src/mn ubuntu:latest ${cmd}"
+        sh "docker run --rm  runtime-tooling${cmd}"
     }
   
-  stage 'Build'
-  runCmd 'npm install'
+  stage 'Compiling'
+  runCmd 'clang --version'
   parallel (
     "frontend": {
-      runCmd "make frontend"
+      runCmd "cmake --version"
     },
     "backend": {
-      runCmd "make backend"
+      runCmd "ninja --version"
     }
   )
 }
