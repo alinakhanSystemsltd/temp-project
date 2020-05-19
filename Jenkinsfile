@@ -1,6 +1,6 @@
 node {
   def runCmd = { cmd ->
-        sh "docker run --rm  runtime-tooling${cmd}"
+        sh "docker run --rm  runtime-tooling ${cmd}"
     }
   
   stage 'Compiling'
