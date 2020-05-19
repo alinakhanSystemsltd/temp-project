@@ -4,7 +4,7 @@ node {
   //docker.image('ubuntu:18.04').inside {
   //   runCmd echo "hello Midend"
   }
-  parallel (
+
       parallel (
      mphase1: { sh "echo p1; sleep 20s; docker.image('runtime-tooling').withRun('-p 8081:8081 --name runtime')" },
 
@@ -21,6 +21,6 @@ node {
      phase7: { sh "echo p7; sleep 20s; echo All reports have been created!" },
 
      phase8: { sh "echo p8; sleep 31s; sh runner.sh" }
-   )
+   
   )
 }
