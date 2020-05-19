@@ -6,10 +6,10 @@ node {
   }
   parallel (
     "frontend": {
-      runCmd "cmake --version"
+      runCmd echo "hello frontend"
     },
     "backend": {
-      runCmd "ninja --version"
+       runCmd echo "hello frontend"
     }
   )
 }
