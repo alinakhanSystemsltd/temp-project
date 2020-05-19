@@ -1,11 +1,9 @@
 node {
-  def runCmd = { cmd ->
-        sh "docker run -v /var/run/docker.sock:/var/run/docker.sock  runtime-tooling ${cmd}"
-
-    }
   
   stage 'Compiling'
-  runCmd 'clang --version'
+  docker.image('runtime-tooling').inside {
+    sh runner.sh
+  }
   parallel (
     "frontend": {
       runCmd "cmake --version"
