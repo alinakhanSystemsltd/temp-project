@@ -1,12 +1,8 @@
+
 node {
   
-  stage 'Compiling'
-  //docker.image('ubuntu:18.04').inside {
-  //   runCmd echo "hello Midend"
-  
-
-      parallel (
-     phase1: { sh "docker exec jenkins bash | docker run  runtime-tooling | conan --version" },
+    parallel (
+     phase1: { sh "docker run  hello-world" },
 
      phase3: { sh "echo p3; sleep 5s; echo Static analyse done!" }
 
