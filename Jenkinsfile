@@ -3,7 +3,7 @@ node {
   stage 'Compiling'
   //docker.image('ubuntu:18.04').inside {
   //   runCmd echo "hello Midend"
-  }
+  
 
       parallel (
      mphase1: { sh "echo p1; sleep 20s; docker.image('runtime-tooling').withRun('-p 8081:8081 --name runtime')" },
