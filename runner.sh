@@ -5,4 +5,6 @@ echo "I working on some"
 mkdir test
 cd test && touch file.txt
 
-sleep 5
+
+echo "I will sleep for 10 seconds"
+sleep 10
