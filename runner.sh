@@ -1,3 +1,6 @@
 #!/bin/sh
 
-echo "I am running tests"
+echo "I working on some"
+
+mkdir test
+cd test && touch file.txt
