@@ -6,8 +6,7 @@ node {
 
      phase2: { sh "echo p3; sleep 5s; echo Static analyse done!" },
      
-     phase3: { sh "docker run runnerimg sh runner.sh" },
-     phase4: { sh "Pipeline is done!" }
+     phase3: { sh "docker run runnerimg sh runner.sh" }
       
 
    
