@@ -14,3 +14,5 @@ RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 RUN groupadd docker && usermod -aG docker jenkins 
 #RUN  chmod 777 /var/run/docker.sock
+
+USER jenkins
