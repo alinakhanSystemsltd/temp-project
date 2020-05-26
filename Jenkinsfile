@@ -13,14 +13,19 @@ pipeline {
           }
         }
       }
-  
 
-    stage('second step') {
+          stage('run docker') {
+      parallel {
+        stage('Express Image') {
           steps {
             sh 'docker run mosaiq_tt cmake --version'
           }
         }
       }
+          }
+  
+
+
 
           post {
         failure {
@@ -28,4 +33,5 @@ pipeline {
         }
       }
     }
+}
 }
