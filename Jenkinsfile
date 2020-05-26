@@ -45,7 +45,7 @@ pipeline {
       }
     }
 
-        stage('Deploy'){
+    stage('DEPLOY'){
       parallel {
         stage('conan') {
           steps {
