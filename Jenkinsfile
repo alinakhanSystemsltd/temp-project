@@ -5,6 +5,7 @@ pipeline {
       }
   }
   stages {
+    // Here start quality assurance stage
     stage('QA') {
       parallel {
         stage('Tests') {
@@ -36,12 +37,12 @@ pipeline {
         }
       }
     }
-
+// Here start deployment stage
     stage('DEPLOYMENT'){
       parallel {
         stage('Result') {
           steps {
-            sh 'echo Reporting...'
+            sh 'echo results are here'
           }
         }
         stage('Deploy Conan Artifacts') {
