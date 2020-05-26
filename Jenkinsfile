@@ -5,13 +5,11 @@ pipeline {
       }
   }
   stages {
-// Building your  Images
     stage('QA') {
       parallel {
         stage('Tests') {
           steps {
-             sh ' echo building'
-            
+             sh ' echo Testing'
           }
         }
         stage('Static analysis') {
