@@ -15,6 +15,7 @@ pipeline {
              sh ' echo Testing'
              sh 'ls'
              sh 'rm -rf analysis.sh'
+             sh 'ls'
           }
         }
         stage('Static analysis') {
