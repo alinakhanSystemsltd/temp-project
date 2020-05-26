@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'debian'
+      image 'runtime-tooling'
       }
   }
   stages {
@@ -9,9 +9,9 @@ pipeline {
     stage('Releases') {
       //paralelized stags
       parallel {
-        stage('Build Docker Image') {
+        stage('release') {
           steps {
-            sh 'docker build -f test.dockerfile -t mosaiq_tt .'
+            sh ' echo building'
             
           }
         }
