@@ -58,7 +58,7 @@ pipeline {
         }
         stage('Conan Artifacts') {
           steps {
-            sh 'echo upload  the artifacts'
+            sh 'conan --version'
           }
         }
       }
