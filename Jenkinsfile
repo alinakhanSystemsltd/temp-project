@@ -13,9 +13,8 @@ pipeline {
         stage('Tests') {
           steps {
              sh ' echo Testing'
-            // sh ' rm analysis.sh'
-             sh 'ls'
-             sh 'sh analysis.sh'
+             sh 'pwd'
+
           }
         }
         stage('Static analysis') {
