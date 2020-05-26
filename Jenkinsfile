@@ -20,7 +20,7 @@ pipeline {
           steps {
             
             
-            sh 'docker run runtime-tooling cmake --version'
+            sh 'cmake --version'
           }
         }
 
