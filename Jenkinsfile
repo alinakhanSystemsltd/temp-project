@@ -59,6 +59,7 @@ pipeline {
         stage('Conan Artifacts') {
           steps {
             sh 'cmake --version'
+             sh 'ninja --version'
           }
         }
       }
