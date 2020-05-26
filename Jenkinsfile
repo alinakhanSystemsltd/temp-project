@@ -49,12 +49,12 @@ pipeline {
       parallel {
         stage('Reports') {
           steps {
-            sh 'echo upload  the artifacts'
+            sh 'echo Reporting...'
           }
         }
-        stage('Conan Jobs') {
+        stage('Conan Artifacts') {
           steps {
-            sh 'echo Reporting'
+            sh 'echo upload  the artifacts'
           }
         }
       }
