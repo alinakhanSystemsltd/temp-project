@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/app'
+      args '-v ${PWD}:/app -w :/app'
       reuseNode true 
       }
   }
@@ -14,6 +14,7 @@ pipeline {
           steps {
              sh ' echo Testing'
              sh ' rm analysis.sh'
+             sh 'ls'
               //sh 'sh analysis.sh'
           }
         }
