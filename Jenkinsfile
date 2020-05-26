@@ -1,8 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {image 'runtime-tooling'}
+  }
   stages {
 // Building your  Images
-    stage('BUILD') {
+    stage('Releases') {
       //paralelized stags
       parallel {
         stage('Build Docker Image') {
