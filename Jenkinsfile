@@ -58,7 +58,7 @@ pipeline {
         }
         stage('Conan Artifacts') {
           steps {
-            sh 'conan --version'
+            sh 'cmake --version'
           }
         }
       }
