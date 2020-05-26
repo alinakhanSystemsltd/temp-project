@@ -11,19 +11,22 @@ pipeline {
           steps {
             sh 'docker build -f test.dockerfile -t mosaiq_tt .'
           }
+        }
+      }
+  
 
-           stage('build-project') {
+    stage('second step') {
           steps {
             sh 'docker run mosaiq_tt cmake --version'
           }
         }
       }
-      post {
+
+          post {
         failure {
             echo 'This build has failed. See logs for details.'
         }
       }
     }
   }
-}
 }
