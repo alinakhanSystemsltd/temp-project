@@ -6,27 +6,32 @@ pipeline {
   }
   stages {
 // Building your  Images
-    stage('Releases') {
-      //paralelized stags
+    stage('QA') {
       parallel {
-        stage('release') {
+        stage('Tests') {
           steps {
-            sh ' echo building'
+             sh ' echo building'
             
           }
         }
-
-        stage('Release-Stage') {
+        stage('Static analysis') {
           steps {
-            
-            
-            sh 'cmake --version'
+             sh 'cmake --version'
+          }
+        }
+
+        stage('Formal analysis') {
+          steps {
+              sh 'cmake --version'
+          }
+        }
+        stage('Dynamic analysis') {
+          steps {
+              sh 'cmake --version'
           }
         }
 
      }
-
-
           post {
         failure {
             echo 'This build has failed. See logs for details.'
