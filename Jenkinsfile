@@ -1,6 +1,8 @@
 pipeline {
   agent {
-    docker {image 'runtime-tooling'}
+    docker {
+      image 'debian'
+      }
   }
   stages {
 // Building your  Images
