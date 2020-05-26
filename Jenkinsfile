@@ -12,11 +12,11 @@ pipeline {
           }
         }
 
-     stage('Express Image') {
+     stage('Cmake Version') {
           steps {
-            sh 'docker build -f test.dockerfile -t mosaiq_tt .'
             
-            sh 'docker run mosaiq_tt cmake --version'
+            
+            sh 'docker run runtime-tooling cmake --version'
           }
         }
       }
