@@ -35,7 +35,11 @@ pipeline {
       parallel {
         stage('test') {
           steps {
-            sh 'echo Running all tests'
+            sh 'echo Running Sanitizer'
+          }
+        }
+        stage('Sanitizer') {
+          steps {
             sh 'echo Running Sanitizer'
           }
         }
