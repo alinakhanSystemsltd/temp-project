@@ -3,7 +3,6 @@ pipeline {
     docker {
       image 'runtime-tooling'
       args '-v ${PWD}:/app -w :/app '
-      readonly true
       reuseNode true 
       }
   }
