@@ -1,14 +1,19 @@
 
 node {
   
-    parallel (
-     phase1: { sh "docker run cmake cmake --version" },
+  stages{
+    parallel {
+      stage('PRE_PROCESS')
+       steps {
+           phase1: { sh 'docker build -f Dockerfiles/dev_env.dockerfile -t mosaiq .' },
 
-     phase2: { sh "echo p3; sleep 5s; echo Static analyse done!" },
-     
-     phase3: { sh "docker run runnerimg sh runner.sh" }
-      
-
-   
-  )
+           phase2: { sh 'mkdir b' },
+   }      
+ }
+}
+    post {
+      failure {
+      echo 'This build has failed. See logs for details.'
+    }
+  }
 }
