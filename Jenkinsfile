@@ -32,7 +32,7 @@ pipeline {
 
     stage('TEST'){
       parallel {
-        stage('test') {
+        stage('Tests') {
           steps {
             sh 'echo Running Sanitizer'
           }
@@ -47,12 +47,12 @@ pipeline {
 
     stage('DEPLOY'){
       parallel {
-        stage('conan') {
+        stage('Reports') {
           steps {
             sh 'echo upload  the artifacts'
           }
         }
-        stage('Reports') {
+        stage('Conan Jobs') {
           steps {
             sh 'echo Reporting'
           }
