@@ -3,11 +3,13 @@ node {
   
   stages{
     parallel {
-      stage('PRE_PROCESS')
+      stage('Build')
        steps {
-           phase1: { sh 'docker build -f Dockerfiles/dev_env.dockerfile -t mosaiq .' },
+           phase1: { sh 'docker build -f test.dockerfile -t mosaiq .' },
 
-           phase2: { sh 'mkdir b' },
+           phase2: { sh 'mkdir build && cd build' },
+
+           phase3: { sh "echo p3; sleep 5s; echo Static analyse done!" }
    }      
  }
 }
