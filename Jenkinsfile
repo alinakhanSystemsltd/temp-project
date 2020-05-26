@@ -5,11 +5,10 @@ pipeline {
     stage('BUILD') {
       //paralelized stags
       parallel {
-        stage('Express Image') {
+        stage('Build Docker Image') {
           steps {
             sh 'docker build -f test.dockerfile -t mosaiq_tt .'
             
-            sh 'docker run mosaiq_tt cmake --version'
           }
         }
 
@@ -41,6 +40,21 @@ pipeline {
         stage('Sanitizer') {
           steps {
             sh 'echo Running Sanitizer'
+          }
+        }
+      }
+    }
+
+        stage('Deploy'){
+      parallel {
+        stage('conan') {
+          steps {
+            sh 'echo upload  the artifacts'
+          }
+        }
+        stage('Reports') {
+          steps {
+            sh 'echo Reporting'
           }
         }
       }
