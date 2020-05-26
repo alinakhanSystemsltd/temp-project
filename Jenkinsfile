@@ -21,16 +21,7 @@ pipeline {
           }
         }
 
-
-       stage('Test-Stage and Static Analyse') {
-         steps {
-          sh 'echo tests are running'
-          sh 'echo sanitizer is running!'
-          }
-        }
-
-
-      }
+     }
 
 
           post {
@@ -44,7 +35,8 @@ pipeline {
       parallel {
         stage('test') {
           steps {
-            sh 'echo second stage'
+            sh 'echo Running all tests'
+            sh 'echo Running Sanitizer'
           }
         }
       }
