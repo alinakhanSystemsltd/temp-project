@@ -1,6 +1,8 @@
-
-node {
-  
+pipeline {
+    environment {
+      DOCKER = credentials('docker-hub')
+    }
+  agent any
   stages {
 // Building your  Images
     stage('BUILD') {
