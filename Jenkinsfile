@@ -39,31 +39,16 @@ pipeline {
       }
     }
 
-    stage('TEST'){
+    stage('DEPLOYMENT'){
       parallel {
-        stage('Tests') {
-          steps {
-            sh 'echo Running Sanitizer'
-          }
-        }
-        stage('Sanitizer') {
-          steps {
-            sh 'echo Running Sanitizer'
-          }
-        }
-      }
-    }
-
-    stage('DEPLOY'){
-      parallel {
-        stage('Reports') {
+        stage('Result') {
           steps {
             sh 'echo Reporting...'
           }
         }
-        stage('Conan Artifacts') {
+        stage('Deploy Conan Artifacts') {
           steps {
-            sh 'cmake --version'
+             sh 'cmake --version'
              sh 'ninja --version'
           }
         }
