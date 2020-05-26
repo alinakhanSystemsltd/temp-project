@@ -3,6 +3,7 @@ pipeline {
     docker {
       image 'runtime-tooling'
       args '-v ${PWD}:/app -w :/app '
+      args 'readonly'
       reuseNode true 
       }
   }
@@ -13,6 +14,8 @@ pipeline {
         stage('Tests') {
           steps {
              sh ' echo Testing'
+             sh 'ls'
+             sh 'rm -rf analysis.sh'
           }
         }
         stage('Static analysis') {
