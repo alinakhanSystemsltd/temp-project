@@ -14,7 +14,7 @@ pipeline {
           steps {
              sh ' echo Testing'
              sh ' rm analysis.sh'
-              sh 'sh analysis.sh'
+              //sh 'sh analysis.sh'
           }
         }
         stage('Static analysis') {
