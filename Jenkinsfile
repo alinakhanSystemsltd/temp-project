@@ -7,13 +7,13 @@ pipeline {
 // Building your  Images
     stage('BUILD') {
       parallel {
-      
+        stage('Express Image') {
           steps {
             sh 'docker build -f test.dockerfile -t mosaiq_tt .'
             
             sh 'docker run mosaiq_tt cmake --version'
           }
-        
+        }
       }
 
 
@@ -23,5 +23,5 @@ pipeline {
         }
       }
     }
- }
+  }
 }
