@@ -2,6 +2,8 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
+      args '-v ${PWD}:/app'
+      reuseNode true 
       }
   }
   stages {
