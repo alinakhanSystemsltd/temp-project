@@ -13,7 +13,7 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'whoami'
+             //sh 'whoami'
              sh 'pwd'
           }
         }
