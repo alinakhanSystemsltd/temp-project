@@ -13,8 +13,7 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'mkdir build && cd build'
-             sh 'pwd && touch file.txt'
+             sh 'mkdir builds && cd builds && touch file.txt'
           }
         }
         stage('Static analysis') {
