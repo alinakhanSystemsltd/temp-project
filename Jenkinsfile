@@ -1,21 +1,19 @@
+import com.encoway.mosaiq.runtime.*;
 pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/app -w :/app '
-      reuseNode true 
+      //args '-v ${PWD}:/app -w :/app'
+      args '--mount type=bind,source="$(pwd)"/template-project,target=/app,readonly'
+      reuseNode true
       }
   }
   stages {
-    // Here start quality assurance stage
     stage('QA') {
       parallel {
         stage('Tests') {
           steps {
              sh ' echo Testing'
-             sh 'ls'
-             sh 'rm -rf analysis.sh'
-             sh 'ls'
           }
         }
         stage('Static analysis') {
@@ -42,12 +40,12 @@ pipeline {
         }
       }
     }
-// Here start deployment stage
+
     stage('DEPLOYMENT'){
       parallel {
         stage('Result') {
           steps {
-            sh 'echo results are here'
+            sh 'echo Reporting...'
           }
         }
         stage('Deploy Conan Artifacts') {
