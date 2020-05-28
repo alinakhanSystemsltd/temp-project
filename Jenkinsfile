@@ -13,7 +13,7 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'conan --version'
+             sh 'mkdir -p /var/test'
           }
         }
         stage('Static analysis') {
