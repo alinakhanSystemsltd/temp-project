@@ -4,7 +4,7 @@ pipeline {
     docker {
       image 'runtime-tooling'
       //args '-v ${PWD}:/app -w :/app'
-      args '--mount type=bind,source="$(pwd)"/template-project,target=/app,readonly'
+      args '--mount type=bind,source="$(pwd)",target=/app'
       reuseNode true
       }
   }
