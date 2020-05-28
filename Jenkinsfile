@@ -14,7 +14,7 @@ pipeline {
         stage('Tests') {
           steps {
              sh 'mkdir build \
-                && cd builds \
+                && cd build \
                 && cmake ..'
           }
         }
