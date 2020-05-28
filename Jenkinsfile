@@ -13,7 +13,7 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh ' sudo mkdir ../build && cd ../build'
+             sh 'whoami'
              sh 'pwd'
           }
         }
