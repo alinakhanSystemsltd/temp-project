@@ -13,7 +13,8 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'mkdir build \
+             sh ' mkdir -p /.conan/conan.conf &&
+                mkdir build \
                 && cd build \
                 && conan --version'
           }
