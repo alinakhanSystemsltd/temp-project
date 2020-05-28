@@ -11,25 +11,48 @@ pipeline {
   stages {
     stage('QA') {
       parallel {
+
+        stage('Release') {
+          steps {
+             sh 'mkdir ../build-release \
+                && cd ../build-release \
+                && cmake'
+          }
+        }
+        stage('Debug') {
+          steps {
+             sh 'mkdir ../build-debug \
+                && cd ../build-debug \
+                && cmake'
+          }
+        }
         stage('Tests') {
           steps {
-             sh 'mkdir -p /var/test'
+             sh 'mkdir ../build-tests \
+                && cd ../build-tests \
+                && cmake'
           }
         }
         stage('Static analysis') {
           steps {
-             sh 'echo static'
+             sh 'mkdir ../build-static \
+                && cd ../build-static \
+                && cmake'
           }
         }
 
         stage('Formal analysis') {
           steps {
-              sh 'echo formal'
+              sh 'mkdir ../build-formal \
+                && cd ../build-format \
+                && cmake'
           }
         }
         stage('Dynamic analysis') {
           steps {
-              sh 'echo dynamic'
+              sh 'mkdir ../build-dynamic \
+                && cd ../build-dynamic \
+                && cmake'
           }
         }
 
