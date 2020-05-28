@@ -13,7 +13,9 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'mkdir builds && cd builds && touch file.txt'
+             sh 'mkdir build \
+                && cd builds \
+                && cmake ..'
           }
         }
         stage('Static analysis') {
