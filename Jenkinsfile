@@ -13,8 +13,7 @@ pipeline {
       parallel {
         stage('Tests') {
           steps {
-             sh 'cd build \
-                && conan --version'
+             sh 'conan --version'
           }
         }
         stage('Static analysis') {
