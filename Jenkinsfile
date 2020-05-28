@@ -15,23 +15,23 @@ pipeline {
           steps {
              sh 'mkdir build \
                 && cd build \
-                && cmake ..'
+                && conan --version'
           }
         }
         stage('Static analysis') {
           steps {
-             sh 'cmake --version'
+             sh 'echo static'
           }
         }
 
         stage('Formal analysis') {
           steps {
-              sh 'cmake --version'
+              sh 'echo formal'
           }
         }
         stage('Dynamic analysis') {
           steps {
-              sh 'cmake --version'
+              sh 'echo dynamic'
           }
         }
 
