@@ -1,6 +1,5 @@
-import com.encoway.mosaiq.runtime.*;
 pipeline {
-  any {
+  agent {
     docker {
       image 'runtime-tooling'
       args '-v ${PWD}:/app -w :/app'
