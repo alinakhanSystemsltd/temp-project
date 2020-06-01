@@ -6,6 +6,12 @@ pipeline {
       reuseNode true
       }
   }
+  environment {
+        CONAN_USE_ALWAYS_SHORT_PATHS = 'True'; 
+        CONAN_USER_HOME = "${env.WORKSPACE}\\.conan"
+        //CONAN_USER_HOME_SHORT = "${env.WORKSPACE}\\.co"
+        CONAN_NON_INTERACTIVE = 1
+    } // en
   stages {
     stage('QA') {
       parallel {
