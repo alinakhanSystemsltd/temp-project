@@ -14,7 +14,7 @@ pipeline {
           steps {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /app'
+                && cmake /var/lib/jenkins/workspace/test1'
           }
         }
         stage('Debug') {
