@@ -39,8 +39,8 @@ set(CONAN_REQUIRES
 )
 set(CONAN_OPTIONS "")
 
-#include(cmake/Conan.cmake)
-#run_conan()
+include(cmake/Conan.cmake)
+run_conan()
 
 #Testing
 if(ENABLE_TESTING)
