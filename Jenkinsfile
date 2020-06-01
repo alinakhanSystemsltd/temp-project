@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'compile-rt'
+      image 'runtime-tooling2'
       args '-v ${PWD}:/app -w :/app'
       reuseNode true
       }
