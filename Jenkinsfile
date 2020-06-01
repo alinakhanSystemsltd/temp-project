@@ -12,7 +12,7 @@ pipeline {
 
         stage('Release') {
           steps {
-             sh 'mkdir /tmp/build-release \
+             sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
                 && cmake /app'
           }
