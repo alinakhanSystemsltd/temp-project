@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'withconan'
+      image 'compile'
       args '-v ${PWD}:/app -w :/app'
       reuseNode true
       }
