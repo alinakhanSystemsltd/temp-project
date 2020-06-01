@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'compile'
+      image 'compile-rt'
       args '-v ${PWD}:/app -w :/app'
       reuseNode true
       }
