@@ -30,17 +30,18 @@ pipeline {
         }
         stage('Static analysis') {
           steps {
+             sh 'echo Reporting...'
                        }
         }
 
         stage('Formal analysis') {
           steps {
-              
+               sh 'echo Reporting...'
           }
         }
         stage('Dynamic analysis') {
           steps {
-              
+               sh 'echo Reporting...'
           }
         }
 
