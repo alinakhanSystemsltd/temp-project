@@ -3,9 +3,7 @@ cmake_minimum_required(VERSION 3.17)
 set(MOSAIQ_PROJECT_NAME "mosaiqruntimeprojectname")
 set(MOSAIQ_PROJECT_DEB_DEPENDENCIES "")
 set(MOSAIQ_PROJECT_CONAN_REQUIREMENTS 
-  gtest/1.10.0
-#  logger/0.1.0-pre4@mosaiq/dev
-)
+  gtest/1.10.0)
 #docker run -it --name mosaiqxx --mount type=bind,source="$(pwd)"/template-project,target=/app,readonly runtime-tooling
 
 set(MOSAIQ_VENDOR "encoway GmbH - New Automation Technologies")
@@ -41,8 +39,8 @@ set(CONAN_REQUIRES
 )
 set(CONAN_OPTIONS "")
 
-include(cmake/Conan.cmake)
-run_conan()
+#include(cmake/Conan.cmake)
+#run_conan()
 
 #Testing
 if(ENABLE_TESTING)
