@@ -12,45 +12,35 @@ pipeline {
 
         stage('Release') {
           steps {
-             sh 'mkdir ../build-release \
-                && cd ../build-release \
-                && cmake '
+             sh 'mkdir /tmp/build-release \
+                && cd /tmp/build-release \
+                && cmake /app'
           }
         }
         stage('Debug') {
           steps {
-             sh 'mkdir ../build-debug \
-                && cd ../build-debug \
-                && cmake'
+             sh 'mkdir build-debug \
+                && cd build-debug'
           }
         }
         stage('Tests') {
           steps {
-             sh 'mkdir ../build-tests \
-                && cd ../build-tests \
-                && cmake'
+             sh 'mkdir build-tests'
           }
         }
         stage('Static analysis') {
           steps {
-             sh 'mkdir ../build-static \
-                && cd ../build-static \
-                && cmake'
-          }
+                       }
         }
 
         stage('Formal analysis') {
           steps {
-              sh 'mkdir ../build-formal \
-                && cd ../build-format \
-                && cmake'
+              
           }
         }
         stage('Dynamic analysis') {
           steps {
-              sh 'mkdir ../build-dynamic \
-                && cd ../build-dynamic \
-                && cmake'
+              
           }
         }
 
