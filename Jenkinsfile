@@ -10,7 +10,7 @@ pipeline {
         CONAN_USE_ALWAYS_SHORT_PATHS = 'True'; 
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
-    } // en
+    } 
   stages {
     stage('QA') {
       parallel {
