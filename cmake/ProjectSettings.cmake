@@ -7,14 +7,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   # Set the possible values of build type for cmake-gui, ccmake
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
 endif()
-find_program(CCACHE ccache)
-if(CCACHE)
-  message("using ccache")
+#find_program(CCACHE ccache)
+#if(CCACHE)
+#  message("using ccache")
 #  set(CCACHE_CONFIGPATH=${CMAKE_CURRENT_SOURCE_DIR})
-  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE})
-else()
-  message("ccache not found cannot use")
-endif()
+#  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE})
+#else()
+#  message("ccache not found cannot use")
+#endif()
 
 # Generate compile_commands.json to make it easier to work with clang based
 # tools
