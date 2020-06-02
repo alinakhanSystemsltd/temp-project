@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'runtime-tooling2'
+      image 'runtime-tooling'
       args '-v ${PWD}:/app -w :/app'
       reuseNode true
       }
@@ -24,13 +24,12 @@ pipeline {
         }
         stage('Debug') {
           steps {
-             sh 'mkdir build-debug \
-                && cd build-debug'
+             sh 'echo debug'
           }
         }
         stage('Tests') {
           steps {
-             sh 'mkdir build-tests'
+            sh 'echo debug'
           }
         }
         stage('Static analysis') {
