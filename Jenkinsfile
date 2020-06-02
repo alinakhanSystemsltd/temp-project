@@ -3,7 +3,7 @@ pipeline {
     environment {
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
-        CONAN_PASSWORD="admin123"
+        CONAN_PASSWORD="test1234"
     } 
 
   agent {
