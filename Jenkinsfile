@@ -71,7 +71,7 @@ pipeline {
         }
         stage('Deploy Conan Artifacts') {
           steps {
-            // sh 'conan remote add mosaiq-local http://localhost:8082/artifactory/api/conan/mosaiq-local'
+             sh 'conan remote add mosaiq-local http://localhost:8082/artifactory/api/conan/mosaiq-local'
              sh 'conan upload "" -r=mosaiq-local -c'
           }
         }
