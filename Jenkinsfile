@@ -21,8 +21,7 @@ pipeline {
           steps {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /var/lib/jenkins/workspace/temp-project &&  make \
-                && ./bin/mosaiqruntimeproject '
+                && cmake /var/lib/jenkins/workspace/temp-project &&  make '
           }
         }
         stage('Debug') {
