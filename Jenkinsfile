@@ -4,7 +4,6 @@ pipeline {
         CONAN_USE_ALWAYS_SHORT_PATHS = 'True'; 
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
-        
     } 
 
   agent {
@@ -22,7 +21,7 @@ pipeline {
           steps {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /var/lib/jenkins/workspace/temp-project && make '
+                && cmake /var/lib/jenkins/workspace/temp-project && env | grep CCACHE '
           }
         }
         stage('Debug') {
