@@ -22,7 +22,7 @@ pipeline {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
                 && cmake /var/lib/jenkins/workspace/temp-project &&  make \
-                &&  ls /tmp/build-release'
+                &&  ls /tmp/build-release/bin'
           }
         }
         stage('Debug') {
