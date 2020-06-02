@@ -23,7 +23,7 @@ pipeline {
                 && cd /tmp/build-release \
                 && cmake /var/lib/jenkins/workspace/temp-project &&  make \
                 && cd /tmp/build-release/bin/ \
-                && ls '
+                && ./mosaiqruntimeprojectname '
           }
         }
         stage('Debug') {
