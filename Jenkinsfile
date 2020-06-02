@@ -21,7 +21,7 @@ pipeline {
           steps {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /var/lib/jenkins/workspace/temp-project && ccache --version '
+                && cmake /var/lib/jenkins/workspace/temp-project && mkdir /tmp/.ccache/tmp && make '
           }
         }
         stage('Debug') {
