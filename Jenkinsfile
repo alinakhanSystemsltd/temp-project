@@ -22,7 +22,7 @@ pipeline {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
                 && cmake /var/lib/jenkins/workspace/temp-project &&  make \
-                &&  ../bin/mosaiqruntimeprojectname'
+                &&  ./tmp/build-release/bin/mosaiqruntimeprojectname'
           }
         }
         stage('Debug') {
