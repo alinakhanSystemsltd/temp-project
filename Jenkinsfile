@@ -4,6 +4,7 @@ pipeline {
         CONAN_USE_ALWAYS_SHORT_PATHS = 'True'; 
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
+        CONAN_PASSWORD=admin123
     } 
 
   agent {
@@ -70,9 +71,8 @@ pipeline {
         }
         stage('Deploy Conan Artifacts') {
           steps {
-           //  sh 'conan remote add mosaiq-local http://localhost:8082/artifactory/api/conan/mosaiq-local'
-           //  sh 'conan upload "" -r=mosaiq-local -c'
-           sh 'conan --version'
+             sh 'conan remote add mosaiq-local http://localhost:8082/artifactory/api/conan/mosaiq-local'
+             sh 'conan upload "" -r=mosaiq-local -c'
           }
         }
       }
