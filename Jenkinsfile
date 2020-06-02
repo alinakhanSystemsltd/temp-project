@@ -3,7 +3,8 @@ pipeline {
     environment {
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
-        CONAN_PASSWORD="test1234"
+        CONAN_USER_NAME="test"
+        CONAN_PASSWORD="12345678"
     } 
 
   agent {
@@ -70,8 +71,10 @@ pipeline {
         }
         stage('Deploy Conan Artifacts') {
           steps {
-             sh 'conan remote add mosaiq-local http://localhost:8082/artifactory/api/conan/mosaiq-local'
+             sh 'conan remote add mosaiq-local http://10.200.19.216:8082/artifactory/api/conan/mosaiq-local'
+             sh 'conan user test -p 123456789 -r=mosaiq-local'
              sh 'conan upload "" -r=mosaiq-local -c'
+            
           }
         }
       }
