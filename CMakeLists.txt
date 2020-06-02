@@ -9,6 +9,8 @@ set(MOSAIQ_PROJECT_CONAN_REQUIREMENTS
 set(MOSAIQ_VENDOR "encoway GmbH - New Automation Technologies")
 set(MOSAIQ_CONTACT "none@right.now")
 
+set(CCACHE_CONFIGPATH="${env.WORKSPACE}/")
+
 project(${MOSAIQ_PROJECT_NAME} 
     VERSION 0.1.0
     LANGUAGES CXX

@@ -4,7 +4,7 @@ pipeline {
         CONAN_USE_ALWAYS_SHORT_PATHS = 'True'; 
         CONAN_USER_HOME = "${env.WORKSPACE}/"
         CONAN_NON_INTERACTIVE = 1
-        CCACHE_CONFIGPATH="${env.WORKSPACE}"
+        CCACHE_CONFIGPATH="${env.WORKSPACE}/"
     } 
   agent {
     docker {
