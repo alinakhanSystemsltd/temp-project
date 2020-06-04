@@ -12,7 +12,7 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 
 #conan_add_remote(NAME conan-center URL
 #                 http://nat01.encowayhb.lokal:8081/repository/conan/)
-conan_add_remote (Name mosaiq-local URL http://localhost:8082/artifactory/api/conan/mosaiq-local) 
+#conan_add_remote (Name mosaiq-local URL http://localhost:8082/artifactory/api/conan/mosaiq-local) 
 
 conan_cmake_run(
   REQUIRES
