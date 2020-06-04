@@ -51,6 +51,7 @@ pipeline {
 
         stage('Address Sanitizer') {
           steps {
+              sh 'pwd
              sh "mkdir -p /tmp/build-sanitizer \
                 && cd /tmp/build-sanitizer \
                 && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
