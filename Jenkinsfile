@@ -11,8 +11,8 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/app -w :/app'
-      args '--read-only'
+      args '-v ${PWD}:/app -w :/app:ro'
+    
       reuseNode true
       }
   }
