@@ -5,7 +5,7 @@ pipeline {
         CONAN_NON_INTERACTIVE = 1
         CONAN_USER_NAME="test"
         CONAN_PASSWORD="12345678"
-        IPS = ips=($(hostname -I))
+        IPS = ips($(hostname -I))
     } 
 
   agent {
