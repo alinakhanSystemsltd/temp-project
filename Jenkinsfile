@@ -40,12 +40,21 @@ pipeline {
         }
          stage('Tests') {
           steps {
-            sh 'echo Hello'
              sh "mkdir -p /tmp/build-test \
                 && cd /tmp/build-test \
                 && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
                 && cd /tmp/build-test/bin/ \
                 && ./mosaiqruntimeprojectname-tests " 
+          }
+        } 
+
+        stage('Address Sanitizer') {
+          steps {
+             sh "mkdir -p /tmp/build-sanitizer \
+                && cd /tmp/build-sanitizer \
+                && cmake -DCMAKE_BUILD_TYPE=ASAN /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
+                && cd /tmp/build-sanitizer/bin/ \
+                && ./mosaiqruntimeprojectname " 
           }
         } 
 
