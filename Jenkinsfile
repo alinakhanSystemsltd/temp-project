@@ -75,7 +75,7 @@ pipeline {
             sh 'echo Reporting...'
           }
         }
-        /* stage('Deploy Conan Artifacts') {
+         stage('Deploy Conan Artifacts') {
           steps {
               
               
@@ -85,7 +85,7 @@ pipeline {
               sh 'conan upload "" -r=mosaiq-local -c'
             
           }
-        } */
+        } 
       }
     }
   }
