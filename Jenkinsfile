@@ -33,7 +33,7 @@ pipeline {
           
               sh "mkdir -p /tmp/build-debug \
                 && cd /tmp/build-debug \
-                && cmake -G -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
+                && cmake  -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
                 && cd /tmp/build-debug/bin/ \
                 && ./mosaiqruntimeprojectname " 
                 }
