@@ -71,14 +71,10 @@ pipeline {
         }
         stage('Deploy Conan Artifacts') {
           steps {
-              if(!mosaiq-local){
-                sh 'conan remote add mosaiq-local http://10.200.19.216:8082/artifactory/api/conan/mosaiq-local'
+              
+              //sh 'conan remote add mosaiq-local http://10.200.19.216:8082/artifactory/api/conan/mosaiq-local'
               sh 'conan user ${CONAN_USER_NAME} -p {CONAN_PASSWORD} -r=mosaiq-local'
-             sh 'conan upload "" -r=mosaiq-local -c'
-              }else {
-                sh 'conan user ${CONAN_USER_NAME} -p {CONAN_PASSWORD} -r=mosaiq-local'
-             sh 'conan upload "" -r=mosaiq-local -c'
-              }            
+              sh 'conan upload "" -r=mosaiq-local -c'
             
           }
         }
