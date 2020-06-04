@@ -30,12 +30,12 @@ pipeline {
         }
         stage('Debug') {
           steps {
-             sh 'echo Hello'
-        /*     sh "mkdir -p /tmp/build-debug \
+            
+             sh "mkdir -p /tmp/build-debug \
                 && cd /tmp/build-debug \
-                && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  make \
+                && cmake -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
                 && cd /tmp/build-debug/bin/ \
-                && ./mosaiqruntimeprojectname " */
+                && ./mosaiqruntimeprojectname " 
           }
         }
         stage('Tests') {
