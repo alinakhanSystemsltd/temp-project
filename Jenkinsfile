@@ -75,11 +75,11 @@ pipeline {
          stage('Deploy Conan Artifacts') {
           steps {
               
-              sh 'sleep 10'
+              sh 'sleep 3'
              
-              sh "conan remote add mosaiq-local http://192.168.1.221:8082/artifactory/api/conan/mosaiq-local"
+/*               sh "conan remote add mosaiq-local http://192.168.1.221:8082/artifactory/api/conan/mosaiq-local"
               sh "conan user ${CONAN_USER_NAME} -p ${CONAN_PASSWORD} -r=mosaiq-local"
-              sh 'conan upload "" -r=mosaiq-local -c'
+              sh 'conan upload "" -r=mosaiq-local -c' */
             
           }
         } 
