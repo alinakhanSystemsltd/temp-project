@@ -20,7 +20,7 @@ pipeline {
     stage('QA') {
       parallel {
 
-/*          stage('Release') {
+         stage('Release') {
           steps {
              sh "mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
@@ -47,7 +47,7 @@ pipeline {
                 && cd /tmp/build-test/bin/ \
                 && ./mosaiqruntimeprojectname-tests " 
           }
-        }  */
+        } 
 
         stage('Address Sanitizer') {
           steps {
