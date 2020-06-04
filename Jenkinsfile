@@ -33,7 +33,7 @@ pipeline {
             
              sh "mkdir -p /tmp/build-debug \
                 && cd /tmp/build-debug \
-                && cmake -GNinja -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
+                && cmake -G -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
                 && cd /tmp/build-debug/bin/ \
                 && ./mosaiqruntimeprojectname " 
           }
@@ -41,11 +41,11 @@ pipeline {
         stage('Tests') {
           steps {
             sh 'echo Hello'
-            sh "mkdir -p /tmp/build-test \
+            /* sh "mkdir -p /tmp/build-test \
                 && cd /tmp/build-test \
                 && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
                 && cd /tmp/build-test/bin/ \
-                && ./mosaiqruntimeprojectname "
+                && ./mosaiqruntimeprojectname " */
           }
         }
 
