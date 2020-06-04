@@ -22,7 +22,7 @@ pipeline {
           steps {
              sh 'mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /var/lib/jenkins/workspace/deploy &&  make \
+                && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  make \
                 && cd /tmp/build-release/bin/ \
                 && ./mosaiqruntimeprojectname '
           }
