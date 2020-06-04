@@ -11,7 +11,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '--network my-net -v ${PWD}:/app -w :/app'
+      args '-v ${PWD}:/app -w :/app'
       reuseNode true
       }
   }
@@ -23,19 +23,29 @@ pipeline {
           steps {
              sh "mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  make \
+                && cmake --build . --config Release --target generated:Release /var/lib/jenkins/workspace/${env.JOB_NAME} \
                 && cd /tmp/build-release/bin/ \
                 && ./mosaiqruntimeprojectname "
           }
         }
         stage('Debug') {
           steps {
-             sh 'echo debug'
+             sh 'echo Hello'
+        /*     sh "mkdir -p /tmp/build-debug \
+                && cd /tmp/build-debug \
+                && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  make \
+                && cd /tmp/build-debug/bin/ \
+                && ./mosaiqruntimeprojectname " */
           }
         }
         stage('Tests') {
           steps {
-            sh 'echo debug'
+            sh 'echo Hello'
+            //sh "mkdir -p /tmp/build-test \
+            //    && cd /tmp/build-test \
+            //    && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  make \
+            //    && cd /tmp/build-test/bin/ \
+            //    && ./mosaiqruntimeprojectname "
           }
         }
         stage('Static analysis') {
