@@ -24,9 +24,8 @@ pipeline {
           steps {
              sh "mkdir -p /tmp/build-release \
                 && cd /tmp/build-release \
-                && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
-                && cd /tmp/build-release/bin/ \
-                && ./mosaiqruntimeprojectname "
+                && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
+
           }
         } 
         stage('Debug') {
@@ -34,9 +33,7 @@ pipeline {
           
               sh "mkdir -p /tmp/build-debug \
                 && cd /tmp/build-debug \
-                && cmake  -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  \
-                && cd /tmp/build-debug/bin/ \
-                && ./mosaiqruntimeprojectname " 
+                && cmake  -DCMAKE_BUILD_TYPE=Debug /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
                 }
         }
          stage('Tests') {
@@ -78,7 +75,7 @@ pipeline {
          stage('Deploy Conan Artifacts') {
           steps {
               
-              
+              sh 'sleep 10'
              
               sh "conan remote add mosaiq-local http://192.168.1.221:8082/artifactory/api/conan/mosaiq-local"
               sh "conan user ${CONAN_USER_NAME} -p ${CONAN_PASSWORD} -r=mosaiq-local"
