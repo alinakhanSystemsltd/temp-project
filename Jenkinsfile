@@ -86,46 +86,20 @@ pipeline {
       }
     }
 
-    stage('Artifactory Configuration'){
 
-      parallel {
-        stage('Reporting') {
-          
-         steps {
-            sh "echo deployment"
-               script {
-
-                      rtServer (
+     stage('upload') {
+           steps {
+              script { 
+                     rtServer (
                    id: 'Artifactory-1',
                     url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
                     // If you're using username and password:
                      username: 'test',
                      password: 'testtest',
-                     timeout: 300 )  
+                     timeout: 300 ) 
                }
-/* 
-              rtUpload (
-               serverId: 'Artifactory-1',
-               spec: '''{
-                    "files": [
-                   {
-                       "pattern": "bazinga/*froggy*.zip",
-                       "target": "bazinga-repo/froggy-files/"
-                   }
-                          ]
-                          }''',
- 
-                     // Optional - Associate the uploaded files with the following custom build name and build number,
-                     // as build artifacts.
-                     // If not set, the files will be associated with the default build name and build number (i.e the
-                    // the Jenkins job name and number).
-                   buildName: 'holyFrog',
-                  buildNumber: '42'
-                  ) */
-           
-         }
+            }
         }
-      }
-    }
+
   }
 }
