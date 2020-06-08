@@ -2,8 +2,7 @@ pipeline {
 
 //For global variable
 /*     environment {
-        CONAN_USER_HOME = "/tmp"
-        CONAN_NON_INTERACTIVE = 1
+        
       
     } */ 
 
