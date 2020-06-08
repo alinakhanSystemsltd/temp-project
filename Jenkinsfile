@@ -1,10 +1,10 @@
 pipeline {
 
-    environment {
+/*     environment {
         CONAN_USER_HOME = "/tmp"
         CONAN_NON_INTERACTIVE = 1
       
-    } 
+    } */ 
 
   agent {
     docker {
@@ -18,7 +18,12 @@ pipeline {
       parallel {
 
          stage('Release') {
-          steps {
+           environment {
+        CONAN_USER_HOME = "/tmp"
+        CONAN_NON_INTERACTIVE = 1
+      
+    } 
+              steps {
 
               sh " mkdir -p /tmp/build-release "
               sh " cd /tmp/build-release && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
