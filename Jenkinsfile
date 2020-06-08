@@ -1,4 +1,15 @@
 pipeline {
+
+             def   rtServer (
+                    id: 'Artifactory-1',
+                    url: 'http://my-artifactory-domain/artifactory',
+                      // If you're using username and password:
+                    username: 'user',
+                    password: 'password',
+                    // If you're using Credentials ID:
+                    credentialsId: 'ccrreeddeennttiiaall',
+                    timeout: 300
+)
   
   agent {
 
@@ -8,21 +19,6 @@ pipeline {
       args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
       reuseNode true
       }
-
-
-    tools{
-             
-               
-    
-             rtServer (
-                   id: 'Artifactory-1',
-                    url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
-                    // If you're using username and password:
-                    username: 'test',
-                    password: 'testtest',
-                    timeout: 300 ) 
-        
-    }
   }
   stages {
     stage('QA') {
