@@ -97,6 +97,22 @@ pipeline {
                         username: 'test',
                         password: 'testtest',
                         timeout: 300 ) 
+
+
+                        rtUpload (
+                           serverId: 'Artifactory-1',
+                           spec: '''{
+                               "files": [
+                                    {
+                                       "pattern": "/tmp/build-release/bin/mosaiqruntimeprojectname",
+                                       "target": "/tmp/build-release/bin/mosaiqruntimeprojectname"
+                                    }
+                                       ]
+                                     }''',
+ 
+                            buildName: 'holyFrog',
+                            buildNumber: '42'
+                        )
                }
             }
         }
