@@ -27,14 +27,13 @@ pipeline {
               sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
 
           }
-                     environment {
-             
-                  CONAN_USER_HOME = "/tmp/build-release"
-                  CONAN_NON_INTERACTIVE = 1
+    environment {
       
-                } 
+        CONAN_USER_HOME = "/tmp/build-release"
+        CONAN_NON_INTERACTIVE = 1
+           } 
         } 
-/*        stage('Address Sanitizer') {
+       stage('Address Sanitizer') {
           steps {
             
               
@@ -42,8 +41,15 @@ pipeline {
               sh " cd /tmp/build-sanitizer && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
               sh " cp /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-asanitizer"
           }
-        } 
 
+              environment {
+      
+        CONAN_USER_HOME = "/tmp/build-sanitizer"
+        CONAN_NON_INTERACTIVE = 1
+           } 
+        } 
+        } 
+/*
          stage('Memory Sanitizer') {
           steps {
                          
