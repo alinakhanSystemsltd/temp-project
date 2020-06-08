@@ -9,8 +9,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/mosaiq-app:ro -w :/mosaiq-app:ro'
-    
+      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app:ro'
       reuseNode true
       }
   }
@@ -43,6 +42,7 @@ pipeline {
               
               sh " mkdir -p /tmp/build-sanitizer "
               sh " cd /tmp/build-sanitizer && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " mv /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/asanitizer"
           }
         } 
 
