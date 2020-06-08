@@ -96,8 +96,7 @@ pipeline {
                         username: 'test',
                         password: 'testtest',
                         timeout: 300 ) 
-
-
+                        
                         rtUpload (
                            serverId: 'Artifactory-1',
                            spec: '''{
