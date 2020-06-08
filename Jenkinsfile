@@ -40,11 +40,11 @@ pipeline {
           steps {
             sh 'echo Sanitizer'
               
-            /*  sh " mkdir -p /tmp/build-sanitizer \
+             sh " mkdir -p /tmp/build-sanitizer \
                 && cd /tmp/build-sanitizer \
-                && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
-                && cd /tmp/build-sanitizer/bin/ \
-                && ./mosaiqruntimeprojectname "  */
+                && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+               /*  && cd /tmp/build-sanitizer/bin/ \
+                && ./mosaiqruntimeprojectname   */
           }
         } 
 
