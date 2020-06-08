@@ -47,16 +47,16 @@ pipeline {
              // sh " cd /tmp/build-sanitizer/bin/ && ./mosaiqruntimeprojectname"
           }
         } 
-/*
+
         stage('Memory Sanitizer') {
           steps {
                          
               sh " mkdir -p /tmp/build-mem-sanitizer "
               sh " cd /tmp/build-mem-sanitizer" 
               sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-              sh " cd /tmp/build-mem-sanitizer/bin/ && ./mosaiqruntimeprojectname "
+              //sh " cd /tmp/build-mem-sanitizer/bin/ && ./mosaiqruntimeprojectname "
           }
-        }  */
+        }  
 
      }
           post {
