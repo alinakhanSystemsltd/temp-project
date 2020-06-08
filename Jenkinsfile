@@ -1,13 +1,14 @@
- rtServer (
+
+
+pipeline {
+  
+   rtServer (
                     id: 'Artifactory-1',
                     url: 'http://my-artifactory-domain/artifactory',
                     username: 'user',
                     password: 'password',
                     timeout: 300
                   )   
-
-pipeline {
-  
   agent {
 
 
