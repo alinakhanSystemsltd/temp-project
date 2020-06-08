@@ -1,5 +1,6 @@
 pipeline {
 
+//For global variable
 /*     environment {
         CONAN_USER_HOME = "/tmp"
         CONAN_NON_INTERACTIVE = 1
@@ -19,7 +20,7 @@ pipeline {
 
          stage('Release') {
 
-              steps {
+            steps {
 
               sh " mkdir -p /tmp/build-release "
               sh " cd /tmp/build-release && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
@@ -27,10 +28,10 @@ pipeline {
               sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
 
           }
-    environment {
+          environment {
       
-        CONAN_USER_HOME = "/tmp/build-release"
-        CONAN_NON_INTERACTIVE = 1
+            CONAN_USER_HOME = "/tmp/build-release"
+            CONAN_NON_INTERACTIVE = 1
            } 
         } 
        stage('Address Sanitizer') {
@@ -42,10 +43,10 @@ pipeline {
               sh " cp /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-asanitizer"
           }
 
-              environment {
+          environment {
       
-        CONAN_USER_HOME = "/tmp/build-sanitizer"
-        CONAN_NON_INTERACTIVE = 1
+            CONAN_USER_HOME = "/tmp/build-sanitizer"
+            CONAN_NON_INTERACTIVE = 1
            } 
         } 
          
