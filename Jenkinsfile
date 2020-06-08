@@ -41,8 +41,7 @@ pipeline {
             
               
               sh " mkdir -p /tmp/build-sanitizer "
-              sh " cd /tmp/build-sanitizer"
-              sh " cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " cd /tmp/build-sanitizer && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
           }
         } 
 
