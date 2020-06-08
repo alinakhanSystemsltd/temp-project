@@ -2,6 +2,14 @@ pipeline {
   
   agent {
 
+
+   docker {
+      image 'runtime-tooling'
+      args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
+      reuseNode true
+      }
+
+
     tools{
              
                
@@ -15,12 +23,6 @@ pipeline {
                     timeout: 300 ) 
         
     }
-
-   docker {
-      image 'runtime-tooling'
-      args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
-      reuseNode true
-      }
   }
   stages {
     stage('QA') {
