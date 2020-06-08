@@ -9,7 +9,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app:ro'
+      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app'
     
       reuseNode true
       }
@@ -21,8 +21,8 @@ pipeline {
          stage('Release') {
           steps {
               
-              sh "mkdir -p /tmp/build-release"
-              sh "cd /tmp/build-release"
+              sh "mkdir -p /var/lib/jenkins/workspace/build-release"
+              sh "cd /var/lib/jenkins/workspace/build-release"
               sh "cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
 
           }
@@ -30,8 +30,9 @@ pipeline {
          stage('Tests-Release') {
           steps {
 
-              sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
-              sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
+              sh " cd /var/lib/jenkins/workspace/${env.JOB_NAME}"
+              //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
+              //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
           }
         } 
 
