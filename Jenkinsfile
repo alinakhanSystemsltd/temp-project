@@ -18,7 +18,9 @@ pipeline {
       parallel {
 
          stage('Release') {
-           steps {sh " mkdir -p /tmp/build-release "}
+           steps {
+             sh " mkdir -p /tmp/build-release "
+             }
            environment {
              
                   CONAN_USER_HOME = "/tmp"
