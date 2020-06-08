@@ -2,13 +2,7 @@
 
 pipeline {
   
-   rtServer (
-                    id: 'Artifactory-1',
-                    url: 'http://my-artifactory-domain/artifactory',
-                    username: 'user',
-                    password: 'password',
-                    timeout: 300
-                  )   
+  
   agent {
 
 
@@ -99,7 +93,16 @@ pipeline {
           
          steps {
             sh "echo deployment"
-               
+               script {
+
+                      rtServer (
+                   id: 'Artifactory-1',
+                    url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
+                    // If you're using username and password:
+                     username: 'test',
+                     password: 'testtest',
+                     timeout: 300 )  
+               }
 /* 
               rtUpload (
                serverId: 'Artifactory-1',
