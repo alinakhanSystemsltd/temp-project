@@ -92,8 +92,7 @@ pipeline {
               script { 
                      rtServer (
                         id: 'Artifactory-1',
-                        url: 'http://10.200.19.216:8082/artifactory/api/conan/mosaiq-local',
-                    // If you're using username and password:
+                        url: 'http://10.200.19.216:8082/artifactory/',
                         username: 'test',
                         password: 'testtest',
                         timeout: 300 ) 
