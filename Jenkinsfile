@@ -30,22 +30,21 @@ pipeline {
          stage('Tests') {
           steps {
     
-                sh "mkdir -p /tmp/build-test"
-                sh "cd /tmp/build-test"
-                sh "cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
+              sh "mkdir -p /tmp/build-test"
+              sh "cd /tmp/build-test"
+              sh "cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
                
           }
         } 
 
-        stage('Address Sanitizer') {
+/*         stage('Address Sanitizer') {
           steps {
             
               
               sh " mkdir -p /tmp/build-sanitizer "
               sh " cd /tmp/build-sanitizer"
               sh " cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-               /*  && cd /tmp/build-sanitizer/bin/ \
-                && ./mosaiqruntimeprojectname   */
+              sh " cd /tmp/build-sanitizer/bin/ && ./mosaiqruntimeprojectname"
           }
         } 
 
@@ -55,10 +54,9 @@ pipeline {
               sh " mkdir -p /tmp/build-mem-sanitizer "
               sh " cd /tmp/build-mem-sanitizer" 
               sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-                /*   && cd /tmp/build-mem-sanitizer/bin/ \
-                && ./mosaiqruntimeprojectname  */
+              sh " cd /tmp/build-mem-sanitizer/bin/ && ./mosaiqruntimeprojectname "
           }
-        } 
+        }  */
 
      }
           post {
