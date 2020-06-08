@@ -54,7 +54,7 @@ pipeline {
           steps {
                          
               sh " mkdir -p /tmp/build-mem-sanitizer "
-              sh " cd /tmp/build-mem-sanitizer && cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " cd /tmp/build-mem-sanitizer && cmake -fsanitize=memory -fno-optimize-sibling-calls -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O2 /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
           }
 
           environment {
