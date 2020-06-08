@@ -83,7 +83,13 @@ pipeline {
     }
 
     stage('Artifactory Configuration'){
-      steps {
+
+      parallel {
+        stage('Reporting') {
+          
+         steps {
+
+               
         script {
                
     
@@ -100,12 +106,8 @@ pipeline {
               // Configure the connection timeout (in seconds).
               // The default value (if not configured) is 300 seconds:
               timeout: 300 ) 
-        }
+        
       }
-      parallel {
-        stage('Reporting') {
-          
-         steps {
             sh "echo test"
          }
         }
