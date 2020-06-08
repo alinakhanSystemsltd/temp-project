@@ -1,26 +1,8 @@
 pipeline {
-
-//For global variable
-/*     environment {
-        
-      
-    } */ 
-rtServer (
-            id: 'Artifactory-1',
-              url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
-               // If you're using username and password:
-              username: 'test',
-              password: 'testtest',
-              // If you're using Credentials ID:
-              //credentialsId: 'ccrreeddeennttiiaall',
-              // If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:
-              //bypassProxy: true,
-              // Configure the connection timeout (in seconds).
-              // The default value (if not configured) is 300 seconds:
-              timeout: 300
-)
+  
   agent {
-    docker {
+
+   docker {
       image 'runtime-tooling'
       args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
       reuseNode true
@@ -100,7 +82,26 @@ rtServer (
       }
     }
 
-    stage('DEPLOYMENT'){
+    stage('Artifactory Configuration'){
+      steps {
+        script {
+               
+    
+             rtServer (
+                   id: 'Artifactory-1',
+                    url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
+                    // If you're using username and password:
+                     username: 'test',
+                     password: 'testtest',
+              // If you're using Credentials ID:
+              //credentialsId: 'ccrreeddeennttiiaall',
+              // If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:
+              //bypassProxy: true,
+              // Configure the connection timeout (in seconds).
+              // The default value (if not configured) is 300 seconds:
+              timeout: 300 ) 
+        }
+      }
       parallel {
         stage('Reporting') {
           
