@@ -86,13 +86,7 @@ pipeline {
         }
       }
     }
-
-    stage('DEPLOYMENT'){
-      parallel {
-        stage('Reporting') {
-          
-         steps {
-            rtServer (
+rtServer (
             id: 'Artifactory-1',
               url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
                // If you're using username and password:
@@ -106,6 +100,12 @@ pipeline {
               // The default value (if not configured) is 300 seconds:
               timeout: 300
 )
+    stage('DEPLOYMENT'){
+      parallel {
+        stage('Reporting') {
+          
+         steps {
+            sh "echo test"
          }
         }
       }
