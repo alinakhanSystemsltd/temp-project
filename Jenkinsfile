@@ -20,17 +20,16 @@ pipeline {
          stage('Release') {
           steps {
               
-             // sh " mkdir -p /var/lib/jenkins/workspace/build-release"
-              sh "cd /var/lib/jenkins/workspace/"
-              sh 'touch text.txt'
-             // sh "cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
+              sh " mkdir -p /tmp/build-release "
+              sh " cd /tmp/build-release && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " mv /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
 
           }
         } 
          stage('Tests-Release') {
           steps {
 
-              sh " cd /var/lib/jenkins/workspace/${env.JOB_NAME}"
+              sh " mv /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
               //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
               //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
           }
@@ -42,7 +41,7 @@ pipeline {
               
               sh " mkdir -p /tmp/build-sanitizer "
               sh " cd /tmp/build-sanitizer && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-              sh " mv /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/asanitizer"
+              sh " mv /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
           }
         } 
 
