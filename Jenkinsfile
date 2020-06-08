@@ -55,11 +55,10 @@ pipeline {
           steps {
                          
               sh " mkdir -p /tmp/build-mem-sanitizer "
-              sh " cd /tmp/build-mem-sanitizer" 
-              sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " cd /tmp/build-mem-sanitizer && cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
           }
 
-                    environment {
+          environment {
       
             CONAN_USER_HOME = "/tmp/build-mem-sanitizer"
             CONAN_NON_INTERACTIVE = 1
