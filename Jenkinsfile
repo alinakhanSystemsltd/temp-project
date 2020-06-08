@@ -1,11 +1,8 @@
-def rtServer (
+ rtServer (
                     id: 'Artifactory-1',
                     url: 'http://my-artifactory-domain/artifactory',
-                      // If you're using username and password:
                     username: 'user',
                     password: 'password',
-                    // If you're using Credentials ID:
-                    credentialsId: 'ccrreeddeennttiiaall',
                     timeout: 300
                   )   
 
