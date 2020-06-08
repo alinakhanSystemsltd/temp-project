@@ -20,15 +20,16 @@ pipeline {
 
          stage('Release') {
           steps {
-             sh "mkdir -p /tmp/build-release \
-                && cd /tmp/build-release \
-                && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
+              
+              sh "mkdir -p /tmp/build-release"
+              sh "cd /tmp/build-release"
+              sh "cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
 
           }
         } 
          stage('Tests') {
           steps {
-                sh 'echo Sanitizer'
+    
                 sh "mkdir -p /tmp/build-test"
                 sh "cd /tmp/build-test"
                 sh "cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
