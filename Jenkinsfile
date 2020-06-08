@@ -29,7 +29,7 @@ pipeline {
         } 
          stage('Tests-Release') {
           steps {
-              
+
               sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
               sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
           }
@@ -54,7 +54,7 @@ pipeline {
           }
         }  
 
-        stage('Memory Sanitizer') {
+        stage('Dynamic') {
           steps {
                          
               sh " mkdir -p /tmp/build-dynamic "
