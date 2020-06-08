@@ -52,11 +52,11 @@ pipeline {
           steps {
             sh 'echo Memory'
               
-            /*  sh " mkdir -p /tmp/build-mem-sanitizer \
+           sh " mkdir -p /tmp/build-mem-sanitizer \
                 && cd /tmp/build-mem-sanitizer \
-                && cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build .\
-                && cd /tmp/build-mem-sanitizer/bin/ \
-                && ./mosaiqruntimeprojectname "  */
+                && cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+                /*   && cd /tmp/build-mem-sanitizer/bin/ \
+                && ./mosaiqruntimeprojectname  */
           }
         } 
 
