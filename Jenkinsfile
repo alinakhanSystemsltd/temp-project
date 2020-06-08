@@ -18,23 +18,21 @@ pipeline {
       parallel {
 
          stage('Release') {
-           steps {
-             sh " mkdir -p /tmp/build-release "
-             }
-           environment {
-             
-                  CONAN_USER_HOME = "/tmp"
-                  CONAN_NON_INTERACTIVE = 1
-      
-                } 
+
               steps {
 
-              //sh " mkdir -p /tmp/build-release "
+              sh " mkdir -p /tmp/build-release "
               sh " cd /tmp/build-release && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
               sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
               sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
 
           }
+                     environment {
+             
+                  CONAN_USER_HOME = "/tmp/build-release"
+                  CONAN_NON_INTERACTIVE = 1
+      
+                } 
         } 
 /*        stage('Address Sanitizer') {
           steps {
