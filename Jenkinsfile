@@ -87,7 +87,7 @@ pipeline {
     }
 
 
-     stage('upload') {
+     stage('Artifactory-Deployment') {
            steps {
               script { 
                      rtServer (
