@@ -64,8 +64,8 @@ pipeline {
           steps {
             sh 'echo Dynamic'
               
-              sh " mkdir -p /tmp/build-mem-sanitizer \
-                && cd /tmp/build-mem-sanitizer \
+              sh " mkdir -p /tmp/build-dyn-sanitizer \
+                && cd /tmp/build-dyn-sanitizer \
                 && scan-build cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
                 /*&& cd /tmp/build-mem-sanitizer/bin/ \
                 && ./mosaiqruntimeprojectname   */
