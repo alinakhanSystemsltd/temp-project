@@ -21,9 +21,9 @@ pipeline {
          stage('Release') {
           steps {
               
-              sh " mkdir -p /var/lib/jenkins/workspace/build-release"
+             // sh " mkdir -p /var/lib/jenkins/workspace/build-release"
               sh "cd /var/lib/jenkins/workspace/build-release"
-              sh "cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
+             // sh "cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} && cmake --build .  "
 
           }
         } 
