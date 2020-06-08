@@ -2,6 +2,20 @@ pipeline {
   
   agent {
 
+    tools{
+             
+               
+    
+             rtServer (
+                   id: 'Artifactory-1',
+                    url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
+                    // If you're using username and password:
+                    username: 'test',
+                    password: 'testtest',
+                    timeout: 300 ) 
+        
+    }
+
    docker {
       image 'runtime-tooling'
       args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
@@ -90,17 +104,7 @@ pipeline {
          steps {
             sh "echo deployment"
                
-       
-               
-    
-             rtServer (
-                   id: 'Artifactory-1',
-                    url: 'http://10.200.19.216:8082/artifactory//artifactory/api/conan/mosaiq-local',
-                    // If you're using username and password:
-                    username: 'test',
-                    password: 'testtest',
-                    timeout: 300 ) 
-        
+
       
            
          }
