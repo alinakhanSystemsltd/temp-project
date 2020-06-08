@@ -38,7 +38,7 @@ pipeline {
             
               
               sh " mkdir -p /tmp/build-sanitizer "
-              sh " cd /tmp/build-sanitizer && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+              sh " cd /tmp/build-sanitizer && cmake -fsanitize=address -fno-optimize-sibling-calls -fsanitize-address-use-after-scope -fno-omit-frame-pointer -g -O1 /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
               //sh " cp /tmp/build-sanitizer/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-asanitizer"
           }
 
@@ -63,6 +63,22 @@ pipeline {
             CONAN_NON_INTERACTIVE = 1
            } 
         }  
+
+
+         stage('Thread Sanitizer') {
+          steps {
+                         
+              sh " mkdir -p /tmp/build-thr-sanitizer "
+              sh " cd /tmp/build-thr-sanitizer && cmake -fsanitize=thread -g -O1  /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+          }
+
+          environment {
+      
+            CONAN_USER_HOME = "/tmp/build-thr-sanitizer"
+            CONAN_NON_INTERACTIVE = 1
+           } 
+        }  
+
 
 
      }
