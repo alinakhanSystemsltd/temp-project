@@ -105,15 +105,26 @@ pipeline {
                                "files": [
                                     {
                                        "pattern": "*mosaiq*",
-                                       "target": "/tmp/build-release/bin/mosaiqruntimeprojectname"
+                                       "target": "mosaiq-local"
                                     }
                                        ]
                                      }''',
  
-                            buildName: 'holyFrog',
-                            buildNumber: '42'
+                            buildName: 'mosaiq',
+                            buildNumber: '01'
                               )
                }
+            }
+        }
+
+
+        
+
+        stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "Artifactory-1"
+                )
             }
         }
 
