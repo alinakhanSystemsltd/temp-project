@@ -9,7 +9,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app'
+      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app:ro'
     
       reuseNode true
       }
@@ -27,13 +27,11 @@ pipeline {
 
           }
         } 
-         stage('Tests') {
+         stage('Tests-Release') {
           steps {
-    
-              sh "mkdir -p /tmp/build-test"
-              sh "cd /tmp/build-test"
-              sh "cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
-               
+              
+              sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
+              sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
           }
         } 
 
@@ -44,7 +42,6 @@ pipeline {
               sh " mkdir -p /tmp/build-sanitizer "
               sh " cd /tmp/build-sanitizer"
               sh " cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-             // sh " cd /tmp/build-sanitizer/bin/ && ./mosaiqruntimeprojectname"
           }
         } 
 
@@ -54,9 +51,18 @@ pipeline {
               sh " mkdir -p /tmp/build-mem-sanitizer "
               sh " cd /tmp/build-mem-sanitizer" 
               sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-              //sh " cd /tmp/build-mem-sanitizer/bin/ && ./mosaiqruntimeprojectname "
           }
         }  
+
+        stage('Memory Sanitizer') {
+          steps {
+                         
+              sh " mkdir -p /tmp/build-dynamic "
+              sh " cd /tmp/build-dynamic" 
+              sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+          }
+        }  
+
 
      }
           post {
