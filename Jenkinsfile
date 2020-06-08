@@ -50,7 +50,7 @@ pipeline {
            } 
         } 
          
-/*
+
          stage('Memory Sanitizer') {
           steps {
                          
@@ -58,7 +58,13 @@ pipeline {
               sh " cd /tmp/build-mem-sanitizer" 
               sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
           }
-        }  
+
+                    environment {
+      
+            CONAN_USER_HOME = "/tmp/build-mem-sanitizer"
+            CONAN_NON_INTERACTIVE = 1
+           } 
+        }  /*
 
         stage('Dynamic') {
           steps {
