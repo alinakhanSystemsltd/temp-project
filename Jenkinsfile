@@ -29,9 +29,9 @@ pipeline {
          stage('Tests') {
           steps {
                 sh 'echo Sanitizer'
-                sh "mkdir -p /tmp/build-test \
-                && cd /tmp/build-test \
-                && cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
+                sh "mkdir -p /tmp/build-test"
+                sh "cd /tmp/build-test"
+                sh "cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
                
           }
         } 
@@ -59,20 +59,6 @@ pipeline {
                 && ./mosaiqruntimeprojectname  */
           }
         } 
-
-          stage('Dynamic Analyzer') {
-          steps {
-            sh 'echo Dynamic'
-              
-              sh " mkdir -p /tmp/build-dyn-sanitizer \
-                && cd /tmp/build-dyn-sanitizer \
-                && scan-build cmake /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-                /*&& cd /tmp/build-mem-sanitizer/bin/ \
-                && ./mosaiqruntimeprojectname   */
-          }
-        } 
-
-
 
      }
           post {
