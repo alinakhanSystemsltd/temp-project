@@ -46,7 +46,7 @@ pipeline {
           }
         } 
 
-        stage('Memory Sanitizer') {
+/*         stage('Memory Sanitizer') {
           steps {
                          
               sh " mkdir -p /tmp/build-mem-sanitizer "
@@ -62,7 +62,7 @@ pipeline {
               sh " cd /tmp/build-dynamic" 
              
           }
-        }  
+        }   */
 
 
      }
