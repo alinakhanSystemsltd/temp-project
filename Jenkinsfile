@@ -23,19 +23,11 @@ pipeline {
               sh " mkdir -p /tmp/build-release "
               sh " cd /tmp/build-release && cmake -fsanitize=address /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
               sh " mv /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
-
-          }
-        } 
-         stage('Tests-Release') {
-          steps {
-
               sh " mv /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
-              //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname " 
-              //sh "cd /tmp/build-release/bin/ && ./mosaiqruntimeprojectname-tests "   
+
           }
         } 
-
-         stage('Address Sanitizer') {
+        stage('Address Sanitizer') {
           steps {
             
               
