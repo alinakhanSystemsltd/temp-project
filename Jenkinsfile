@@ -60,7 +60,7 @@ pipeline {
                          
               sh " mkdir -p /tmp/build-dynamic "
               sh " cd /tmp/build-dynamic" 
-              sh " cmake -fsanitize=memory /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
+             
           }
         }  
 
