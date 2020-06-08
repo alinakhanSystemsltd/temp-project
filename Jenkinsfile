@@ -37,7 +37,7 @@ pipeline {
           }
         } 
 
-/*         stage('Address Sanitizer') {
+         stage('Address Sanitizer') {
           steps {
             
               
@@ -47,7 +47,7 @@ pipeline {
               sh " cd /tmp/build-sanitizer/bin/ && ./mosaiqruntimeprojectname"
           }
         } 
-
+/*
         stage('Memory Sanitizer') {
           steps {
                          
