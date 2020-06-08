@@ -1,15 +1,4 @@
 pipeline {
-
-             def   rtServer (
-                    id: 'Artifactory-1',
-                    url: 'http://my-artifactory-domain/artifactory',
-                      // If you're using username and password:
-                    username: 'user',
-                    password: 'password',
-                    // If you're using Credentials ID:
-                    credentialsId: 'ccrreeddeennttiiaall',
-                    timeout: 300
-)
   
   agent {
 
@@ -101,7 +90,16 @@ pipeline {
           
          steps {
             sh "echo deployment"
-               
+               rtServer (
+                    id: 'Artifactory-1',
+                    url: 'http://my-artifactory-domain/artifactory',
+                      // If you're using username and password:
+                    username: 'user',
+                    password: 'password',
+                    // If you're using Credentials ID:
+                    credentialsId: 'ccrreeddeennttiiaall',
+                    timeout: 300
+                  )     
 /* 
               rtUpload (
                serverId: 'Artifactory-1',
