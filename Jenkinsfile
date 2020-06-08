@@ -9,7 +9,7 @@ pipeline {
   agent {
     docker {
       image 'runtime-tooling'
-      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app'
+      args '-v ${PWD}:/mosaiq-app -w :/mosaiq-app:ro'
     
       reuseNode true
       }
