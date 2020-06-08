@@ -100,13 +100,19 @@ pipeline {
 
 
                         rtUpload (
-                          serverId: 'Artifactory-1',
-                          specPath: '/tmp/build-release/bin/mosaiqruntimeprojectname',
+                           serverId: 'Artifactory-1',
+                           spec: '''{
+                               "files": [
+                                    {
+                                       "pattern": "*mosaiq*",
+                                       "target": "/tmp/build-release/bin/mosaiqruntimeprojectname"
+                                    }
+                                       ]
+                                     }''',
  
-
-                          buildName: 'holyFrog',
-                          buildNumber: '42'
-                        )
+                            buildName: 'holyFrog',
+                            buildNumber: '42'
+                              )
                }
             }
         }
