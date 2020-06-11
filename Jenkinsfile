@@ -80,9 +80,7 @@ pipeline {
  
             steps {
                sh "Building debian package..."
-               sh " mkdir -p /tmp/build-deb-packages "
-               sh " cp -r /tmp/build-release /tmp/build-deb-packages \
-                  && cd /tmp/build-deb-packages  && cpack "
+               sh " cd /tmp/build-release  && cpack "
                sh  "ls "
                
                //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
