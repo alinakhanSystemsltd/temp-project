@@ -19,10 +19,11 @@ pipeline {
          stage('Release') {
  
             steps {
-                sh "echo bla bla"
-              //sh " mkdir -p /tmp/build-release "
-              //sh " cd /tmp/build-release && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build ."
-              //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
+               sh "echo bla bla"
+               sh " mkdir -p /tmp/build-release "
+               sh " cd /tmp/build-release && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
+               sh  "conan search"
+               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
               
           }
           //environment {
@@ -101,10 +102,6 @@ pipeline {
                   && conan new  hello/0.1 -t  \
                   && conan create . demo/testing  --profile ${CLANG_PROFILE} \
                   && conan search "
-  
-                //  && conan new  hello/0.1 -t \
-                //  && conan create  --build=gtest --build=hello \
-                //  && conan search "
               
           }
           environment {
@@ -114,10 +111,8 @@ pipeline {
             CLANG_PROFILE="${WORKSPACE}/conan.profile"
            } 
         } 
-          }
-
-        }
-
+      }
+    }
 
   }
 }
