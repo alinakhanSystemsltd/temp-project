@@ -74,7 +74,7 @@ pipeline {
             CONAN_USER_HOME = "/tmp/build-thr-sanitizer"
             CONAN_NON_INTERACTIVE = 1
            } 
-        }    */
+        }    
 
         stage('Build deb package') {
  
@@ -91,7 +91,7 @@ pipeline {
             CONAN_USER_HOME = "/tmp/build-release"
             CONAN_NON_INTERACTIVE = 1
            }  
-        } 
+        } */
      }
       
           post {
