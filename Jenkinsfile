@@ -97,7 +97,7 @@ pipeline {
 
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
-              sh "conan install .. -pr=${WORKSPACE}/conan_profile"
+              sh "conan install .. -pr=conan_profile"
               sh " cd /tmp/build-release \
                   && conan new  mosaiq/1.0 -t \
                   && conan create . mosaiq/test   \
