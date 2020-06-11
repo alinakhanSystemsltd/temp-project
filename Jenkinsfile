@@ -98,7 +98,8 @@ pipeline {
 
               sh " echo Building conan package..."
               sh " cd /tmp/build-release \
-                  && conan search"
+                  && conan search \
+                  && conan remote list"
                
                   
               
