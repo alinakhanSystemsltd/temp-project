@@ -110,7 +110,7 @@ pipeline {
           environment {
       
             CONAN_USER_HOME = "/tmp/build-release"
-            CONAN_NON_INTERACTIVE = 1
+            CONAN_NON_INTERACTIVE = 0
             CLANG_PROFILE="${WORKSPACE}/conan.profile"
            } 
         } 
