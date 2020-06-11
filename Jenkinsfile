@@ -100,7 +100,7 @@ pipeline {
               sh " cd /tmp/conan-package \
                   && conan search 
                   && conan new  hello/0.1 -t \
-                  && conan create . demo/testing "  
+                  && conan create . demo/testing -pr=${CONAN_PROFILE}"  
                 //  && conan new  hello/0.1 -t \
                 //  && conan create  --build=gtest --build=hello \
                 //  && conan search "
