@@ -107,7 +107,7 @@ pipeline {
            } 
         } */
 
-          stage('Build deb package') {
+         /*  stage('Build deb package') {
  
             steps {
                sh "Building debian package..."
@@ -121,7 +121,7 @@ pipeline {
       
             CONAN_USER_HOME = "/tmp/build-release"
             CONAN_NON_INTERACTIVE = 1
-           }  
+           }   */
         } 
 
       }
