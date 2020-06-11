@@ -97,10 +97,10 @@ pipeline {
 
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
+              sh "conan install .. -pr=${WORKSPACE}/conan_profile"
               sh " cd /tmp/build-release \
                   && conan new  mosaiq/1.0 -t \
-                  && cp  ${WORKSPACE}/conan_profile /tmp/conan-package/.conan/profiles/default \
-                  && conan create . mosaiq/test -s  \
+                  && conan create . mosaiq/test   \
                   && conan search"
               
           }
