@@ -97,10 +97,9 @@ pipeline {
 
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
-             
               sh " cd /tmp/build-release \
+                  && conan install --update --profile ${CLANG_PROFILE}
                   && conan new  mosaiq/1.0 -t \
-                  && conan install . --profile ${WORKSPACE}/conan_profile \
                   && conan create . mosaiq/test   \
                   && conan search"
               
@@ -109,6 +108,7 @@ pipeline {
       
             CONAN_USER_HOME = "/tmp/conan-package"
             CONAN_NON_INTERACTIVE = 1
+            CLANG_PROFILE="${WORKSPACE}/conan.profile"
            } 
         } 
           }
