@@ -98,7 +98,7 @@ pipeline {
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/build-release \
-                  && conan new  mosaiq/1.0 -t && conan create . mosaiq/test -s compiler='clang' \
+                  && conan new  mosaiq/1.0 -t && conan create . mosaiq/test -s compiler='clang' -s  compile.version=10 \
                   && conan search"
               
           }
