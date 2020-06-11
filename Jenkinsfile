@@ -100,8 +100,8 @@ pipeline {
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/conan-package \
                   && conan new  hello/0.1 -t  \
-                  && conan create . demo/testing  --profile=${CLANG_PROFILE} \ 
-                  && conan search "
+                  && conan create . demo/testing  --profile ${CLANG_PROFILE} " 
+                  
               
           }
           environment {
