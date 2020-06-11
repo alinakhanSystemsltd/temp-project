@@ -98,9 +98,10 @@ pipeline {
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/conan-package \
-                  && conan search 
                   && conan new  hello/0.1 -t \
-                  && conan create . demo/testing -pr=${CONAN_PROFILE}"  
+                  && conan create . demo/testing -pr=${CONAN_PROFILE} \
+                  && conan search "
+  
                 //  && conan new  hello/0.1 -t \
                 //  && conan create  --build=gtest --build=hello \
                 //  && conan search "
