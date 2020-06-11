@@ -102,7 +102,7 @@ pipeline {
                   && conan search \
                   && conan remote list \
                   && conan upload '' -r=mosaiq-local -c \
-                  && conan user test -p testtest "
+                  && conan user ${CONAN_LOGIN_NAME} -p ${CONAN_PASSWORD} "
                   
                   
               
@@ -112,6 +112,8 @@ pipeline {
             CONAN_USER_HOME = "/tmp/build-release"
             CONAN_NON_INTERACTIVE = 0
             CLANG_PROFILE="${WORKSPACE}/conan.profile"
+            CONAN_LOGIN_USERNAME="test"
+            CONAN_PASSWORD="testtest"
            } 
         } 
       }
