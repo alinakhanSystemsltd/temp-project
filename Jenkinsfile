@@ -99,8 +99,6 @@ pipeline {
 
               sh " echo Building conan package..."
               sh " cd /tmp/build-release \
-                  && conan search \
-                  && conan remote list \
                   && conan upload gtest/1.10.0 -r=mosaiq-local -c "
                  // && conan user ${CONAN_LOGIN_USERNAME} -p ${CONAN_PASSWORD} 
                   
