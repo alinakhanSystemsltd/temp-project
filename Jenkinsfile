@@ -101,8 +101,8 @@ pipeline {
               sh " cd /tmp/build-release \
                   && conan search \
                   && conan remote list \
-                  && conan user test -p testtest \
-                  && conan upload '' -r=mosaiq-local -c "
+                  && conan upload '' -r=mosaiq-local -c \
+                  && conan user test -p testtest "
                   
                   
               
