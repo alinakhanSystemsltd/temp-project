@@ -90,7 +90,7 @@ pipeline {
           parallel {
 
 
-         stage('Packaging') {
+         /* stage('Packaging') {
             steps {
 
               sh " echo Building conan package..."
@@ -105,7 +105,7 @@ pipeline {
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
-        }
+        } */
 
           stage('Build deb package') {
  
