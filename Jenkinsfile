@@ -79,6 +79,24 @@ pipeline {
         }   
 
      }
+      stage('Build deb package') {
+ 
+            steps {
+               sh "Building debian package..."
+               sh " mkdir -p /tmp/build-deb-packages "
+               sh " cp -r /tmp/build-release /tmp/build-deb-packages && cd /tmp/build-deb-packages
+                  && cpack "
+               sh  "ls "
+               
+               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
+              
+          }
+          environment {
+      
+            CONAN_USER_HOME = "/tmp/build-release"
+            CONAN_NON_INTERACTIVE = 1
+           }  
+        } 
           post {
         failure {
             echo 'This build has failed. See logs for details.'
