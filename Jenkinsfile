@@ -99,7 +99,7 @@ pipeline {
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/conan-package \
                   && conan new  hello/0.1 -t  \
-                  && conan install . --profile=${CLANG_PROFILE} \
+                  && conan install . --profile ${CLANG_PROFILE} \
                   && conan create . demo/testing  -s compiler=clang \
                   && conan search "
   
