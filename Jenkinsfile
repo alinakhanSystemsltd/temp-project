@@ -25,11 +25,11 @@ pipeline {
               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
               
           }
-          environment {
+          //environment {
       
             //CONAN_USER_HOME = "/tmp/build-release"
             //CONAN_NON_INTERACTIVE = 1
-           }  
+           //}  
         } 
        /* stage('Address Sanitizer') {
           steps {
