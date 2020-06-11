@@ -100,7 +100,7 @@ pipeline {
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/conan-package \
                   && conan new  hello/0.1 -t  \
-                  && mv ${WORKSPACE}/conan.profile /tmp/conan-package/.conan/profile/default
+                  && mv ${WORKSPACE}/conan.profile /tmp/conan-package/.conan/profile/default \
                   && conan create . demo/testing  --profile ${CLANG_PROFILE} " 
                   
               
