@@ -76,8 +76,7 @@ pipeline {
            } 
         }   
 
-     }
-      stage('Build deb package') {
+        stage('Build deb package') {
  
             steps {
                sh "Building debian package..."
@@ -95,6 +94,8 @@ pipeline {
             CONAN_NON_INTERACTIVE = 1
            }  
         } 
+     }
+      
           post {
         failure {
             echo 'This build has failed. See logs for details.'
