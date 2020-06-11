@@ -22,7 +22,7 @@ pipeline {
                sh " cd /tmp/build-release && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
                sh  "conan search && conan remote list "
                
-               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
+               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname-tests /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-tests"
               
           }
           environment {
@@ -31,7 +31,7 @@ pipeline {
             CONAN_NON_INTERACTIVE = 1
            }  
         } 
-           stage('Address Sanitizer') {
+         stage('Address Sanitizer') {
           steps {
             
               
@@ -74,12 +74,9 @@ pipeline {
             CONAN_USER_HOME = "/tmp/build-thr-sanitizer"
             CONAN_NON_INTERACTIVE = 1
            } 
-        }     
+        }   
 
-      
      }
-     }
-      
           post {
         failure {
             echo 'This build has failed. See logs for details.'
@@ -91,7 +88,7 @@ pipeline {
           parallel {
 
 
-          stage('Packaging') {
+         stage('Packaging') {
             steps {
 
               sh " echo Building conan package..."
@@ -102,14 +99,10 @@ pipeline {
           environment {
             CONAN_USER_HOME = "/tmp/build-release"
             CONAN_NON_INTERACTIVE = 0
-            CLANG_PROFILE="${WORKSPACE}/conan.profile"
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
         } 
-
-         
-
       }
     }
 
