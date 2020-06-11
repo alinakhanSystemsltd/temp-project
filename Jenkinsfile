@@ -98,8 +98,9 @@ pipeline {
               sh "echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/conan-package \
-                  && conan install . --profile=${CLANG_PROFILE} \
+                  
                   && conan new  hello/0.1 -t \
+                  && conan install . --profile=${CLANG_PROFILE} \
                   && conan create . demo/testing  \
                   && conan search "
   
