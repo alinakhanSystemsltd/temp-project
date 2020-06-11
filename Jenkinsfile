@@ -98,15 +98,16 @@ pipeline {
 
               sh " echo Building conan package..."
               sh " mkdir -p /tmp/conan-package "
-              sh " cd /tmp/build-release \
+              sh " cd /tmp/conan-package \
                   && conan new  hello/0.1 -t  \
-                  && conan create . demo/testing  --profile ${CLANG_PROFILE} " 
+                  && mv ${WORKSPACE}/conan.profile /tmp/conan-package/.conan/profile/default
+                  && conan create . demo/testing  --profile ${CLANG_PROFILE} \  " 
                   
               
           }
           environment {
       
-            CONAN_USER_HOME = "/tmp/build-release"
+            CONAN_USER_HOME = "/tmp/conan-package"
             CONAN_NON_INTERACTIVE = 1
             CLANG_PROFILE="${WORKSPACE}/conan.profile"
            } 
