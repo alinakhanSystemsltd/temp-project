@@ -100,8 +100,9 @@ pipeline {
               sh " echo Building conan package..."
               sh " cd /tmp/build-release \
                   && conan search \
-                  && conan remote list"
-               
+                  && conan remote list \
+                  && conan upload "" -r=mosaiq-local -c "
+                  
                   
               
           }
