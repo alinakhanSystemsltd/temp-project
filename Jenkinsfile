@@ -88,43 +88,30 @@ pipeline {
 
 
      stage('Artifactory-Deployment') {
-           steps {
-              script { 
-                     rtServer (
-                        id: 'Artifactory-1',
-                        url: 'http://10.200.19.216:8082/artifactory/',
-                        username: 'test',
-                        password: 'testtest',
-                        timeout: 300 ) 
-                        
-                        rtUpload (
-                           serverId: 'Artifactory-1',
-                           spec: '''{
-                               "files": [
-                                    {
-                                       "pattern": "*mosaiq*",
-                                       "target": "mosaiq-local"
-                                    }
-                                       ]
-                                     }''',
- 
-                            buildName: 'mosaiq',
-                            buildNumber: '01'
-                              )
-               }
-            }
-        }
+          parallel {
 
 
-        
+         stage('Packaging') {
 
-        stage ('Publish build info') {
             steps {
-                rtPublishBuildInfo (
-                    serverId: "Artifactory-1"
-                )
-            }
+
+              sh "echo Building conan package..."
+              sh " mkdir -p /tmp/conan-package "
+              sh " cd /tmp/build-release \
+                  && conan new  mosaiq/1.0 -t && conan create . mosaiq/test \
+                  && conan search"
+              
+          }
+          environment {
+      
+            CONAN_USER_HOME = "/tmp/conan-package"
+            CONAN_NON_INTERACTIVE = 1
+           } 
+        } 
+          }
+
         }
+
 
   }
 }
