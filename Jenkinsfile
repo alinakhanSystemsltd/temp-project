@@ -110,7 +110,7 @@ pipeline {
 
               sh " echo Building conan package..."
               sh " cd /tmp/build-release \
-                  && cpack "
+                  && cpack " 
                   
           }
           
