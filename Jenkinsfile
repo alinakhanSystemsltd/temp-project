@@ -99,7 +99,7 @@ pipeline {
               sh " mkdir -p /tmp/conan-package "
               sh " cd /tmp/build-release \
                   && conan new  mosaiq/1.0 -t \
-                  && cp  ${WORKSPACE}/default /tmp/conan-package/.conan/profiles/default \
+                  && cp  ${WORKSPACE}/conan_profile /tmp/conan-package/.conan/profiles/default \
                   && conan create . mosaiq/test -s  \
                   && conan search"
               
