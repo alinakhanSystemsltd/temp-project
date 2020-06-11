@@ -19,7 +19,7 @@ pipeline {
          stage('Release') {
  
             steps {
-               sh "echo bla bla"
+               sh "echo Release is building..."
                sh " mkdir -p /tmp/build-release "
                sh " cd /tmp/build-release && cmake -DCMAKE_BUILD_TYPE=Release /var/lib/jenkins/workspace/${env.JOB_NAME} &&  cmake --build . "
                sh  "conan search && conan remote list "
@@ -33,7 +33,7 @@ pipeline {
             CONAN_NON_INTERACTIVE = 1
            }  
         } 
-        /* stage('Address Sanitizer') {
+         stage('Address Sanitizer') {
           steps {
             
               
@@ -76,10 +76,8 @@ pipeline {
             CONAN_USER_HOME = "/tmp/build-thr-sanitizer"
             CONAN_NON_INTERACTIVE = 1
            } 
-        }   */
+        }   
 
-
- 
      }
           post {
         failure {
@@ -88,8 +86,7 @@ pipeline {
       }
     }
 
-
-     stage('Artifactory-Deployment') {
+     stage('Deploy Conan Packages') {
           parallel {
 
 
@@ -100,10 +97,7 @@ pipeline {
               sh " echo Building conan package..."
               sh " cd /tmp/build-release \
                   && conan upload gtest/1.10.0 -r=mosaiq-local -c "
-                 // && conan user ${CONAN_LOGIN_USERNAME} -p ${CONAN_PASSWORD} 
                   
-                  
-              
           }
           environment {
       
