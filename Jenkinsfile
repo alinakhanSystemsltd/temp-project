@@ -102,7 +102,7 @@ pipeline {
                   && conan search \
                   && conan remote list \
                   && conan upload '' -r=mosaiq-local -c \
-                  && conan user ${CONAN_LOGIN_NAME} -p ${CONAN_PASSWORD} "
+                  && conan user ${CONAN_LOGIN_USERNAME} -p ${CONAN_PASSWORD} "
                   
                   
               
