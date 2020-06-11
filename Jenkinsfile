@@ -91,7 +91,7 @@ pipeline {
           parallel {
 
 
-         /* stage('Packaging') {
+          stage('Packaging') {
             steps {
 
               sh " echo Building conan package..."
@@ -106,24 +106,9 @@ pipeline {
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
-        } */
+        } 
 
-         /*  stage('Build deb package') {
- 
-            steps {
-               sh "Building debian package..."
-               sh " cd /tmp/build-release  && cpack "
-               sh  "ls "
-               
-               //sh " cp /tmp/build-release/bin/mosaiqruntimeprojectname /var/lib/jenkins/workspace/${env.JOB_NAME}/mosaiqruntimeprojectname-release"
-              
-          }
-          environment {
-      
-            CONAN_USER_HOME = "/tmp/build-release"
-            CONAN_NON_INTERACTIVE = 1
-           }   
-        } */
+         
 
       }
     }
