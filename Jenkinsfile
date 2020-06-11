@@ -100,7 +100,7 @@ pipeline {
               sh " cd /tmp/conan-package \
                   && conan new  hello/0.1 -t  \
                   && conan install . --profile ${CLANG_PROFILE} \
-                  && conan create . demo/testing  -s compiler=clang \
+                  && conan create . demo/testing  \
                   && conan search "
   
                 //  && conan new  hello/0.1 -t \
