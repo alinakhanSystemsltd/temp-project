@@ -108,7 +108,7 @@ pipeline {
          stage('Debian Packaging') {
             steps {
 
-              sh " cd /tmp/build-release && cpack &&  curl -u admin:admin  -H  Content-Type:multipart/form-data --data-binary @/tmp/build-release/mosaiqruntimeprojectname-0.1.0-Linux.deb http://172.17.0.2:8081/repository/mosaiq" 
+              sh " cd /tmp/build-release && cpack &&  curl -u admin:admin -X POST -H  Content-Type:multipart/form-data --data-binary @/tmp/build-release/mosaiqruntimeprojectname-0.1.0-Linux.deb http://172.17.0.2:8081/repository/mosaiq" 
           }
           
         } 
