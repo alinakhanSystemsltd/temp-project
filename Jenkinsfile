@@ -84,7 +84,7 @@ pipeline {
       }
     }
 
-     stage('Deploy Conan Packages') {
+/*      stage('Deploy Conan Packages') {
           parallel {
 
 
@@ -102,7 +102,7 @@ pipeline {
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
-        }  
+        }  */ 
           
         
          stage('Deploy Debian Package') {
