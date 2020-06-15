@@ -88,7 +88,7 @@ pipeline {
           parallel {
 
 
-          stage('Conan Packaging') {
+/*           stage('Conan Packaging') {
             steps {
 
               sh " echo Building conan package..."
@@ -98,11 +98,11 @@ pipeline {
           }
           environment {
             CONAN_USER_HOME = "/tmp/build-release"
-            CONAN_NON_INTERACTIVE = 0
+            CONAN_NON_INTERACTIVE = 0   
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
-        } 
+        }  */
 
         
          stage('Debian Packaging') {
