@@ -110,8 +110,8 @@ pipeline {
 
               sh " cd /tmp/build-release && cpack " 
 
-              sh " cd /tmp/build-release \
-                  && curl -u "admin:admin123" -H "Content-Type: multipart/form-data" --data-binary "@./mosaiqruntimeprojectname.deb" "http://localhost:8081/repository/mosaiq/""
+              sh " cd /tmp/build-release \ 
+                  && curl -u admin:admin123 -H Content-Type: multipart/form-data --data-binary @./mosaiqruntimeprojectname.deb http://localhost:8081/repository/mosaiq/" 
           }
           
         } 
