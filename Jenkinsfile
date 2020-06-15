@@ -88,7 +88,7 @@ pipeline {
           parallel {
 
 
-/*           stage('Conan Packaging') {
+           stage('Conan Packaging') {
             steps {
 
               sh " echo Building conan package..."
@@ -102,10 +102,10 @@ pipeline {
             CONAN_LOGIN_USERNAME="test"
             CONAN_PASSWORD="testtest"
            } 
-        }  */
-          //Content-Type: multipart/form-data
+        }  
+          
         
-         stage('Debian Packaging') {
+         stage('Deploy Debian Package') {
             steps {
 
               sh " cd /tmp/build-release && cpack &&  curl -u admin:admin -X POST -H  Content-Type:multipart/form-data --data-binary @mosaiqruntimeprojectname-0.1.0-Linux.deb http://172.17.0.2:8081/repository/mosaiq/" 
