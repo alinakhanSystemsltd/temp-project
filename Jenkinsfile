@@ -108,7 +108,7 @@ pipeline {
          stage('Deploy Debian Package') {
             steps {
 
-              sh " cd /tmp/build-release && cpack &&  curl -u admin:admin -X POST -H  Content-Type:multipart/form-data --data-binary @mosaiqruntimeprojectname-0.1.0-Linux.deb http://172.17.0.2:8081/repository/mosaiq/" 
+              echo "Deployed " 
 
           }
           
